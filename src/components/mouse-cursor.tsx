@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
 
 interface Props {
-    containerRef: React.RefObject<HTMLElement>;
+    containerRef: any;
 }
 
 export function MouseCursor({ containerRef }: Props) {
@@ -38,7 +38,7 @@ export function MouseCursor({ containerRef }: Props) {
 
         document.addEventListener('mousemove', handleMouseMove);
         return () => document.removeEventListener('mousemove', handleMouseMove);
-    }, [containerRef]);
+    }, [containerRef, isVisible, mouseX, mouseY]);
 
     return (
         <motion.div
