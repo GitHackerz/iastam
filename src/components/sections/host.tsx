@@ -28,7 +28,7 @@ export default function HostSection() {
                         </div>
                         <div className="text-center max-w-2xl">
                             <h3 className="text-xl font-semibold mb-2">
-                                ENIS - École Nationale d'Ingénieurs de Sfax
+                                ENIS - École Nationale d&apos;Ingénieurs de Sfax
                             </h3>
                             <p className="text-muted-foreground">
                                 Leading engineering school in Tunisia, committed
