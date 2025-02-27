@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import BlurFade from '@/components/ui/blur-fade';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 
 const sponsorLevels = [
@@ -23,53 +24,85 @@ const sponsorLevels = [
 ];
 
 export default function SponsorsSection() {
+    const [sectionRef, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.2,
+        rootMargin: '-100px 0px',
+    });
+
     return (
-        <section className="py-24 bg-muted/50">
-            <div className="container px-4 mx-auto">
-                <BlurFade>
-                    <div className="text-center mb-16">
-                        <span className="text-primary text-sm tracking-wider uppercase">
-                            Support
-                        </span>
-                        <h2 className="text-3xl font-bold mt-2">
-                            Our Sponsors
-                        </h2>
-                    </div>
-                </BlurFade>
+        <section ref={sectionRef} className="py-24 bg-muted/50">
+            <div className="container max-w-6xl px-4 mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={
+                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+                    }
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
+                >
+                    <span className="text-primary text-sm tracking-wider uppercase">
+                        Support
+                    </span>
+                    <h2 className="text-3xl font-bold mt-2">Our Sponsors</h2>
+                </motion.div>
 
                 <div className="space-y-16">
                     {sponsorLevels.map((level, idx) => (
-                        <BlurFade key={level.level} delay={0.2 * idx}>
-                            <div className="space-y-6">
-                                <h3 className="text-xl font-semibold text-center">
-                                    {level.level}
-                                </h3>
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-                                    {level.sponsors.map(sponsor => (
-                                        <div
-                                            key={sponsor.name}
-                                            className="bg-background rounded-xl p-6 flex items-center justify-center"
-                                        >
-                                            <Image
-                                                src={sponsor.logo}
-                                                alt={sponsor.name}
-                                                width={180}
-                                                height={100}
-                                                className="object-contain"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                        <motion.div
+                            key={level.level}
+                            initial={{
+                                opacity: 0,
+                                x: idx % 2 === 0 ? -50 : 50,
+                            }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, x: 0 }
+                                    : {
+                                          opacity: 0,
+                                          x: idx % 2 === 0 ? -50 : 50,
+                                      }
+                            }
+                            transition={{
+                                duration: 0.6,
+                                delay: inView ? 0.2 * idx : 0,
+                            }}
+                            className="space-y-6"
+                        >
+                            <h3 className="text-xl font-semibold text-center">
+                                {level.level}
+                            </h3>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                                {level.sponsors.map(sponsor => (
+                                    <motion.div
+                                        key={sponsor.name}
+                                        whileHover={{ scale: 1.03 }}
+                                        className="bg-background rounded-xl p-6 flex items-center justify-center"
+                                    >
+                                        <Image
+                                            src={sponsor.logo}
+                                            alt={sponsor.name}
+                                            width={180}
+                                            height={100}
+                                            className="object-contain"
+                                        />
+                                    </motion.div>
+                                ))}
                             </div>
-                        </BlurFade>
+                        </motion.div>
                     ))}
                 </div>
 
-                <BlurFade delay={0.4}>
-                    <div className="text-center mt-16">
-                        <Button size="lg">Become a Sponsor</Button>
-                    </div>
-                </BlurFade>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={
+                        inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-center mt-16"
+                >
+                    <Button size="lg">Become a Sponsor</Button>
+                </motion.div>
             </div>
         </section>
     );

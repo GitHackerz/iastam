@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { MouseCursor } from '@/components/mouse-cursor';
+import { useInView } from 'react-intersection-observer';
 
 interface TimeLeft {
     days: number;
@@ -13,12 +14,18 @@ interface TimeLeft {
 }
 
 export default function TimeLeftSection() {
-    const sectionRef = useRef<HTMLElement>(null);
+    const containerRef = useRef<HTMLElement>(null);
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({
         days: 0,
         hours: 0,
         minutes: 0,
         seconds: 0,
+    });
+
+    const [sectionRef, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.2,
+        rootMargin: '-100px 0px',
     });
 
     useEffect(() => {
@@ -44,17 +51,22 @@ export default function TimeLeftSection() {
     }, []);
 
     const variants = {
-        initial: { y: 50, opacity: 0 },
-        animate: { y: 0, opacity: 1 },
+        hidden: { y: 50, opacity: 0 },
+        visible: { y: 0, opacity: 1 },
     };
 
     return (
         <>
             <section
-                ref={sectionRef}
+                ref={node => {
+                    // Assign the ref to both containerRef and sectionRef
+                    if (containerRef)
+                        containerRef.current = node as HTMLElement;
+                    if (sectionRef) sectionRef(node);
+                }}
                 className="py-24 relative overflow-hidden cursor-none"
             >
-                <MouseCursor containerRef={sectionRef} />
+                <MouseCursor containerRef={containerRef} />
                 {/* Background decorations */}
                 <div className="absolute inset-0 pointer-events-none">
                     {/* Circuit-like patterns */}
@@ -124,10 +136,14 @@ export default function TimeLeftSection() {
                 {/* Background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/50" />
 
-                <div className="container px-4 mx-auto relative z-10">
+                <div className="container max-w-6xl px-4 mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, y: 0 }
+                                : { opacity: 0, y: 20 }
+                        }
                         transition={{ duration: 0.5 }}
                         className="text-center mb-12"
                     >
@@ -144,10 +160,10 @@ export default function TimeLeftSection() {
                             <motion.div
                                 key={key}
                                 variants={variants}
-                                initial="initial"
-                                animate="animate"
+                                initial="hidden"
+                                animate={inView ? 'visible' : 'hidden'}
                                 transition={{
-                                    delay: index * 0.1,
+                                    delay: inView ? index * 0.1 : 0,
                                     duration: 0.5,
                                 }}
                             >

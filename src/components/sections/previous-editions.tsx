@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import BlurFade from '@/components/ui/blur-fade';
 import { ArrowUpRight, X } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
 
 interface Edition {
     year: string;
@@ -72,26 +73,42 @@ const editions: Edition[] = [
 
 export default function PreviousEditions() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [sectionRef, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.2,
+        rootMargin: '-100px 0px',
+    });
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section ref={sectionRef} className="py-24 relative overflow-hidden">
             {/* Modern gradient background */}
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
 
-            <div className="container px-4 mx-auto relative">
-                <BlurFade>
-                    <div className="text-center space-y-3 mb-16">
-                        <span className="text-primary text-sm tracking-wider uppercase">
-                            Gallery
-                        </span>
-                        <h2 className="text-4xl font-bold">
-                            Previous Editions
-                        </h2>
-                    </div>
-                </BlurFade>
+            <div className="container max-w-6xl px-4 mx-auto relative">
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={
+                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+                    }
+                    transition={{ duration: 0.6 }}
+                    className="text-center space-y-3 mb-16"
+                >
+                    <span className="text-primary text-sm tracking-wider uppercase">
+                        Gallery
+                    </span>
+                    <h2 className="text-4xl font-bold">Previous Editions</h2>
+                </motion.div>
 
                 <Tabs defaultValue="2023" className="w-full">
-                    <BlurFade delay={0.2}>
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, x: 0 }
+                                : { opacity: 0, x: -50 }
+                        }
+                        transition={{ duration: 0.6 }}
+                    >
                         <TabsList className="flex justify-center gap-2 bg-transparent mb-16">
                             {editions.map(edition => (
                                 <TabsTrigger
@@ -105,7 +122,7 @@ export default function PreviousEditions() {
                                 </TabsTrigger>
                             ))}
                         </TabsList>
-                    </BlurFade>
+                    </motion.div>
 
                     <AnimatePresence mode="wait">
                         {editions.map(edition => (
@@ -115,20 +132,25 @@ export default function PreviousEditions() {
                             >
                                 <div className="space-y-8">
                                     {/* Floating year indicator */}
-                                    <BlurFade delay={0.3}>
-                                        <div
-                                            className="sticky top-4 z-30 flex justify-between items-center 
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -50 }}
+                                        animate={
+                                            inView
+                                                ? { opacity: 1, x: 0 }
+                                                : { opacity: 0, x: -50 }
+                                        }
+                                        transition={{ duration: 0.6 }}
+                                        className="sticky top-4 z-30 flex justify-between items-center 
                                                       bg-background/80 backdrop-blur-lg rounded-full p-4 mb-8 
                                                       border border-primary/10"
-                                        >
-                                            <h3 className="text-xl font-medium">
-                                                {edition.location}
-                                            </h3>
-                                            <span className="text-primary font-bold">
-                                                {edition.year}
-                                            </span>
-                                        </div>
-                                    </BlurFade>
+                                    >
+                                        <h3 className="text-xl font-medium">
+                                            {edition.location}
+                                        </h3>
+                                        <span className="text-primary font-bold">
+                                            {edition.year}
+                                        </span>
+                                    </motion.div>
 
                                     {/* Masonry grid */}
                                     <div className="columns-1 md:columns-2 lg:columns-3 gap-4">
@@ -177,11 +199,18 @@ export default function PreviousEditions() {
                                         ))}
                                     </div>
 
-                                    <BlurFade delay={0.5}>
-                                        <p className="text-muted-foreground text-center italic">
-                                            {edition.description}
-                                        </p>
-                                    </BlurFade>
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -50 }}
+                                        animate={
+                                            inView
+                                                ? { opacity: 1, x: 0 }
+                                                : { opacity: 0, x: -50 }
+                                        }
+                                        transition={{ duration: 0.6 }}
+                                        className="text-muted-foreground text-center italic"
+                                    >
+                                        {edition.description}
+                                    </motion.div>
                                 </div>
                             </TabsContent>
                         ))}

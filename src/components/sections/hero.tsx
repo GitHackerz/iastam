@@ -1,10 +1,21 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, CircuitBoard, Cpu, Waves } from 'lucide-react';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
 
 export default function HeroSection() {
+    const [sectionRef] = useInView({
+        triggerOnce: false,
+        threshold: 0.2,
+    });
+
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+        <section
+            ref={sectionRef}
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+        >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-20 dark:opacity-10">
                 <div className="absolute inset-0 bg-grid-black/[0.2] dark:bg-grid-white/[0.2]" />
@@ -32,7 +43,7 @@ export default function HeroSection() {
             </div>
 
             {/* Content Container */}
-            <div className="container px-4 py-32 mx-auto relative z-10">
+            <div className="container max-w-6xl px-4 py-32 mx-auto relative z-10">
                 <div className="text-center space-y-8 max-w-4xl mx-auto">
                     {/* Pre-title */}
                     <p className="text-primary font-medium tracking-wider uppercase">

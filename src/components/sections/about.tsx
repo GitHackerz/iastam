@@ -1,14 +1,33 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function AboutSection() {
+    const [sectionRef, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.2,
+        rootMargin: '-100px 0px',
+    });
+
     return (
-        <section className="py-24 bg-muted/50">
-            <div className="container px-4 mx-auto">
+        <section ref={sectionRef} className="py-24 bg-muted/50">
+            <div className="container max-w-6xl px-4 mx-auto">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Logo Side */}
-                    <div className="relative aspect-square w-full max-w-md mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, x: 0 }
+                                : { opacity: 0, x: -50 }
+                        }
+                        transition={{ duration: 0.6 }}
+                        className="relative aspect-square w-full max-w-md mx-auto"
+                    >
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/0 animate-pulse" />
                         <Image
                             src="/images/ias-tam-logo.png"
@@ -17,10 +36,19 @@ export default function AboutSection() {
                             className="object-contain p-8"
                             priority
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Content Side */}
-                    <div className="space-y-6">
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, x: 0 }
+                                : { opacity: 0, x: 50 }
+                        }
+                        transition={{ duration: 0.6 }}
+                        className="space-y-6"
+                    >
                         <h2 className="text-3xl font-bold tracking-tight">
                             About IAS TAM 2025
                         </h2>
@@ -54,7 +82,7 @@ export default function AboutSection() {
                                 <Link href="/papers">Submit Paper</Link>
                             </Button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
