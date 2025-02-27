@@ -114,7 +114,7 @@ export default function AboutPage() {
                 <>
                     <p>
                         IEEE (Institute of Electrical and Electronics Engineers)
-                        is the world's largest technical professional
+                        is the world&apos;s largest technical professional
                         organization dedicated to advancing technology for the
                         benefit of humanity. Founded in 1884, IEEE and its
                         members inspire a global community through its highly
@@ -160,9 +160,10 @@ export default function AboutPage() {
                 <>
                     <p>
                         The IEEE Industry Applications Society (IAS) is one of
-                        IEEE's largest societies, focusing on the advancement of
-                        theory and practice in electrical and electronic
-                        engineering in industrial and commercial applications.
+                        IEEE&apos;s largest societies, focusing on the
+                        advancement of theory and practice in electrical and
+                        electronic engineering in industrial and commercial
+                        applications.
                     </p>
                     <p>
                         IAS sponsors international conferences, workshops, and
