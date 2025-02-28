@@ -14,7 +14,7 @@ export default function AboutSection() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24 bg-muted/50">
+        <section ref={sectionRef} className="py-24 ">
             <div className="container max-w-6xl px-4 mx-auto">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Logo Side */}
@@ -30,7 +30,7 @@ export default function AboutSection() {
                     >
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/0 animate-pulse" />
                         <Image
-                            src="/images/ias-tam-logo.png"
+                            src="/images/logos/iastam.png"
                             alt="IAS TAM Logo"
                             fill
                             className="object-contain p-8"

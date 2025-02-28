@@ -4,9 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, CircuitBoard, Cpu, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
+import DecorativeLines from '@/components/ui/decorative-lines';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
-    const [sectionRef] = useInView({
+    const [sectionRef, inView] = useInView({
         triggerOnce: false,
         threshold: 0.2,
     });
@@ -16,13 +18,28 @@ export default function HeroSection() {
             ref={sectionRef}
             className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
         >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-20 dark:opacity-10">
-                <div className="absolute inset-0 bg-grid-black/[0.2] dark:bg-grid-white/[0.2]" />
+            {/* Background Pattern with Decorative Lines */}
+            <div className="absolute inset-0 z-0">
+                <DecorativeLines
+                    variant="diagonal"
+                    inView={inView}
+                    opacity={0.15} // Increased opacity
+                    color="var(--primary)"
+                />
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden">
+            {/* Additional decorative circuit lines for tech feeling */}
+            <div className="absolute top-1/4 right-0 w-1/3 h-1/3 z-0">
+                <DecorativeLines
+                    variant="circuit"
+                    inView={inView}
+                    opacity={0.25} // Increased opacity
+                    color="var(--primary)"
+                />
+            </div>
+
+            {/* Decorative Elements (now z-10 to make sure they're in front of the lines) */}
+            <div className="absolute inset-0 overflow-hidden z-10">
                 {/* Top Right Circuit */}
                 <div className="absolute -right-20 -top-20 w-[400px] h-[400px] opacity-10">
                     <CircuitBoard className="w-full h-full animate-pulse text-primary" />
@@ -42,21 +59,39 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Content Container */}
-            <div className="container max-w-6xl px-4 py-32 mx-auto relative z-10">
+            {/* Content Container (now z-20 to make sure it's on top) */}
+            <div className="container max-w-6xl px-4 py-32 mx-auto relative z-20">
                 <div className="text-center space-y-8 max-w-4xl mx-auto">
                     {/* Pre-title */}
-                    <p className="text-primary font-medium tracking-wider uppercase">
+                    <motion.p
+                        className="text-primary font-medium tracking-wider uppercase"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, y: 0 }
+                                : { opacity: 0, y: -20 }
+                        }
+                        transition={{ duration: 0.6 }}
+                    >
                         Welcome to
-                    </p>
+                    </motion.p>
 
                     {/* Main Title */}
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                    <motion.h1
+                        className="text-4xl md:text-6xl font-bold tracking-tight"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={
+                            inView
+                                ? { opacity: 1, y: 0 }
+                                : { opacity: 0, y: 30 }
+                        }
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                    >
                         IEEE Industry Applications Society{' '}
                         <span className="text-primary">
                             Tunisia Annual Meeting
                         </span>
-                    </h1>
+                    </motion.h1>
 
                     {/* Edition Number */}
                     <p className="text-2xl md:text-3xl font-semibold">

@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import SectionHeader from '@/components/ui/section-header';
 
 export default function HostSection() {
     const [sectionRef, inView] = useInView({
@@ -15,67 +16,101 @@ export default function HostSection() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24 bg-muted/50">
+        <motion.section
+            ref={sectionRef}
+            className="py-24 relative"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8 }}
+        >
             <div className="container max-w-6xl px-4 mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={
-                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
-                    }
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <span className="text-primary text-sm tracking-wider uppercase">
-                        Host Organization
-                    </span>
-                    <h2 className="text-3xl font-bold mt-2">Organized By</h2>
-                </motion.div>
+                <SectionHeader
+                    subtitle="Host Organization"
+                    title="Organized By"
+                    inView={inView}
+                />
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Logo Side */}
                     <motion.div
+                        className="flex flex-col items-center justify-center space-y-8"
                         initial={{ opacity: 0, x: -50 }}
                         animate={
                             inView
                                 ? { opacity: 1, x: 0 }
                                 : { opacity: 0, x: -50 }
                         }
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex flex-col items-center justify-center space-y-6"
+                        transition={{ duration: 0.7, delay: 0.2 }}
                     >
-                        <div className="relative w-full h-52 max-w-xs">
+                        <motion.div
+                            className="relative w-full h-52 max-w-xs"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 30 }
+                            }
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                        >
                             <Image
-                                src="/images/ieee-esprit-sb-logo.png"
+                                src="/images/logos/sb.png"
                                 alt="IEEE ESPRIT Student Branch"
                                 fill
                                 className="object-contain"
                             />
-                        </div>
-                        <div className="relative w-full h-32 max-w-xs">
+                        </motion.div>
+                        <motion.div
+                            className="relative w-full h-32 max-w-xs"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 30 }
+                            }
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                        >
                             <Image
-                                src="/images/ieee-esprit-joint-chapters-logo.png"
+                                src="/images/logos/iip.png"
                                 alt="IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapters"
                                 fill
                                 className="object-contain"
                             />
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Content Side */}
                     <motion.div
+                        className="space-y-5"
                         initial={{ opacity: 0, x: 50 }}
                         animate={
                             inView
                                 ? { opacity: 1, x: 0 }
                                 : { opacity: 0, x: 50 }
                         }
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="space-y-5"
+                        transition={{ duration: 0.7, delay: 0.4 }}
                     >
-                        <h3 className="text-xl font-semibold">
+                        <motion.h3
+                            className="text-xl font-semibold"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 20 }
+                            }
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
                             IEEE ESPRIT Student Branch & Joint Chapters
-                        </h3>
-                        <div className="space-y-4 text-muted-foreground">
+                        </motion.h3>
+                        <motion.div
+                            className="space-y-4 text-muted-foreground"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 20 }
+                            }
+                            transition={{ duration: 0.5, delay: 0.7 }}
+                        >
                             <p>
                                 IEEE ESPRIT Student Branch, along with its IAS,
                                 IES, and PES Joint Chapters, proudly hosts the
@@ -91,9 +126,18 @@ export default function HostSection() {
                                 systems, industrial automation, and renewable
                                 energy.
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <motion.div
+                            className="flex flex-col sm:flex-row gap-4 pt-4"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={
+                                inView
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 20 }
+                            }
+                            transition={{ duration: 0.5, delay: 0.8 }}
+                        >
                             <Button variant="outline" asChild>
                                 <Link
                                     href="https://www.linkedin.com/company/ieee-esprit-student-branch/"
@@ -114,10 +158,10 @@ export default function HostSection() {
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </Button>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

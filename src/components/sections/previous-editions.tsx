@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BlurFade from '@/components/ui/blur-fade';
 import { ArrowUpRight, X } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
+import SectionHeader from '@/components/ui/section-header';
+import DecorativeLines from '@/components/ui/decorative-lines';
 
 interface Edition {
     year: string;
@@ -80,34 +82,39 @@ export default function PreviousEditions() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24 relative overflow-hidden">
-            {/* Modern gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+        <motion.section
+            ref={sectionRef}
+            className="py-24 relative"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8 }}
+        >
+            {/* Modern gradient background with grid lines - better visibility */}
+            <div className="absolute inset-0 z-0">
+                <DecorativeLines
+                    variant="grid"
+                    inView={inView}
+                    opacity={0.15} // Increased opacity
+                    color="var(--primary)"
+                />
+            </div>
 
-            <div className="container max-w-6xl px-4 mx-auto relative">
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={
-                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
-                    }
-                    transition={{ duration: 0.6 }}
-                    className="text-center space-y-3 mb-16"
-                >
-                    <span className="text-primary text-sm tracking-wider uppercase">
-                        Gallery
-                    </span>
-                    <h2 className="text-4xl font-bold">Previous Editions</h2>
-                </motion.div>
+            <div className="container max-w-6xl px-4 mx-auto relative z-10">
+                <SectionHeader
+                    subtitle="Gallery"
+                    title="Previous Editions"
+                    inView={inView}
+                />
 
                 <Tabs defaultValue="2023" className="w-full">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={
                             inView
-                                ? { opacity: 1, x: 0 }
-                                : { opacity: 0, x: -50 }
+                                ? { opacity: 1, y: 0 }
+                                : { opacity: 0, y: 30 }
                         }
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
                     >
                         <TabsList className="flex justify-center gap-2 bg-transparent mb-16">
                             {editions.map(edition => (
@@ -249,6 +256,6 @@ export default function PreviousEditions() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section>
+        </motion.section>
     );
 }

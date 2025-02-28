@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import SectionHeader from '@/components/ui/section-header';
 
 const partners = [
     { name: 'Partner 1', logo: '/images/partners/partner1.png' },
@@ -18,21 +19,19 @@ export default function PartnersSection() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24">
+        <motion.section
+            ref={sectionRef}
+            className="py-24 bg-background relative"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8 }}
+        >
             <div className="container max-w-6xl px-4 mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={
-                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
-                    }
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <span className="text-primary text-sm tracking-wider uppercase">
-                        Collaborations
-                    </span>
-                    <h2 className="text-3xl font-bold mt-2">Our Partners</h2>
-                </motion.div>
+                <SectionHeader
+                    subtitle="Collaborations"
+                    title="Our Partners"
+                    inView={inView}
+                />
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {partners.map((partner, idx) => (
@@ -48,7 +47,7 @@ export default function PartnersSection() {
                                 duration: 0.5,
                                 delay: inView ? 0.1 * idx : 0,
                             }}
-                            className="relative aspect-video bg-muted/50 rounded-xl p-4 flex items-center justify-center"
+                            className="relative aspect-video rounded-xl p-4 flex items-center justify-center"
                             whileHover={{ scale: 1.05 }}
                         >
                             <Image
@@ -62,6 +61,6 @@ export default function PartnersSection() {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

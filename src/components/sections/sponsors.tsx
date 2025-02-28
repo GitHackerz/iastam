@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
+import SectionHeader from '@/components/ui/section-header';
+import DecorativeLines from '@/components/ui/decorative-lines';
 
 const sponsorLevels = [
     {
@@ -31,21 +33,23 @@ export default function SponsorsSection() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24 bg-muted/50">
-            <div className="container max-w-6xl px-4 mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={
-                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
-                    }
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <span className="text-primary text-sm tracking-wider uppercase">
-                        Support
-                    </span>
-                    <h2 className="text-3xl font-bold mt-2">Our Sponsors</h2>
-                </motion.div>
+        <section ref={sectionRef} className="py-24 relative">
+            {/* Add decorative lines in the background with better visibility */}
+            <div className="absolute inset-0 overflow-hidden z-0">
+                <DecorativeLines
+                    variant="circuit"
+                    inView={inView}
+                    opacity={0.15} // Increased opacity
+                    color="var(--primary)"
+                />
+            </div>
+
+            <div className="container max-w-6xl px-4 mx-auto relative z-10">
+                <SectionHeader
+                    subtitle="Support"
+                    title="Our Sponsors"
+                    inView={inView}
+                />
 
                 <div className="space-y-16">
                     {sponsorLevels.map((level, idx) => (

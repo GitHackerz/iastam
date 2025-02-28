@@ -12,7 +12,7 @@ export default function LocationSection() {
     });
 
     return (
-        <section ref={sectionRef} className="py-24 bg-muted/50">
+        <section ref={sectionRef} className="py-24 bg-background">
             <div className="container max-w-6xl px-4 mx-auto">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
