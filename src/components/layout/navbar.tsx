@@ -13,6 +13,7 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,12 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/" className="font-bold text-xl">
-                        IAS-TAM
+                        <Image
+                            src="/images/logos/iastam.png"
+                            alt="Logo"
+                            width={120}
+                            height={30}
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}

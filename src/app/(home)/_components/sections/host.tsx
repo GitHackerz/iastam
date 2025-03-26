@@ -81,7 +81,7 @@ export default function HostSection() {
                         >
                             <div className="relative h-full w-full flex items-center justify-center">
                                 <Image
-                                    src="/images/logos/sb.png"
+                                    src="/images/logos/ieee-esprit.png"
                                     alt="IEEE ESPRIT Student Branch"
                                     fill
                                     className="object-contain p-4"
@@ -102,7 +102,7 @@ export default function HostSection() {
                         >
                             <div className="relative h-full w-full flex items-center justify-center">
                                 <Image
-                                    src="/images/logos/iip.png"
+                                    src="/images/logos/iip-esprit.png"
                                     alt="IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapters"
                                     fill
                                     className="object-contain p-4"
