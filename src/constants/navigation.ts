@@ -8,8 +8,12 @@ export const navLinks = [
         href: '/about',
     },
     {
-        label: 'Events',
-        href: '/events',
+        label: 'Tunisia',
+        href: '/tunisia',
+    },
+    {
+        label: 'Program',
+        href: '/program',
     },
     {
         label: 'Contact',
