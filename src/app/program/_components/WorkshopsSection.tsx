@@ -193,7 +193,7 @@ export const WorkshopsSection = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                     {workshopsData.map((workshop, index) => (
                         <motion.div
                             key={index}
@@ -206,21 +206,21 @@ export const WorkshopsSection = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <Card className="h-full border-border hover:border-primary/50 hover:shadow-md transition-all flex flex-col">
-                                <CardHeader className="pb-3">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                                <CardHeader className="pb-2 sm:pb-3 space-y-2">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                         <div className="text-primary">
                                             {workshop.icon}
                                         </div>
                                     </div>
-                                    <CardTitle className="text-lg">
+                                    <CardTitle className="text-base sm:text-lg">
                                         {workshop.title}
                                     </CardTitle>
-                                    <CardDescription>
+                                    <CardDescription className="text-sm">
                                         {workshop.description}
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="flex-grow">
-                                    <div className="flex flex-wrap gap-2 mb-4">
+                                <CardContent className="flex-grow pt-1">
+                                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                                         {workshop.topics.map((topic, i) => (
                                             <span
                                                 key={i}
@@ -231,7 +231,7 @@ export const WorkshopsSection = () => {
                                         ))}
                                     </div>
 
-                                    <div className="space-y-2 mt-4 text-sm">
+                                    <div className="space-y-1 sm:space-y-2 mt-2 sm:mt-4 text-xs sm:text-sm">
                                         <div className="flex items-center text-muted-foreground">
                                             <MapPin className="h-4 w-4 mr-2" />
                                             <span

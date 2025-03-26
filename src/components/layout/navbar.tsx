@@ -13,7 +13,6 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +40,7 @@ export default function Navbar() {
                             ))}
                         </div>
                         <Separator orientation="vertical" className="h-6" />
-                        <ThemeToggle />
+                        {/* <ThemeToggle /> */}
                         <Button
                             asChild
                             className="bg-primary text-primary-foreground hover:bg-primary/90"
@@ -71,10 +70,10 @@ export default function Navbar() {
                                         {link.label}
                                     </Link>
                                 ))}
-                                <div className="flex items-center justify-between px-2">
+                                {/* <div className="flex items-center justify-between px-2">
                                     <span className="text-sm">Theme</span>
                                     <ThemeToggle />
-                                </div>
+                                </div> */}
                                 <Separator className="my-2 mx-14" />
                                 <Button
                                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4"

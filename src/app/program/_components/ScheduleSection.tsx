@@ -166,13 +166,13 @@ export const ScheduleSection = () => {
                 </motion.div>
 
                 {/* Improved Day Selection Tabs */}
-                <div className="flex justify-center mb-12 relative z-10">
-                    <div className="inline-flex rounded-lg shadow-md overflow-hidden bg-card p-1">
+                <div className="flex justify-center mb-8 md:mb-12 relative z-10 px-2">
+                    <div className="inline-flex rounded-lg shadow-md overflow-hidden bg-card p-1 w-full max-w-sm">
                         {['day1', 'day2', 'day3'].map((day, index) => (
                             <button
                                 key={day}
                                 type="button"
-                                className={`px-6 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                                className={`flex-1 px-2 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${
                                     selectedDay === day
                                         ? 'bg-primary text-white shadow-md'
                                         : 'hover:bg-muted'
@@ -186,7 +186,7 @@ export const ScheduleSection = () => {
                 </div>
 
                 {/* Timeline Display */}
-                <div className="relative z-10">
+                <div className="relative z-10 px-2 sm:px-0">
                     {Object.keys(schedule).map(day => (
                         <div
                             key={day}
@@ -202,7 +202,7 @@ export const ScheduleSection = () => {
                                 }}
                                 className="relative z-10"
                             >
-                                <h3 className="text-xl font-bold mb-8 text-center md:text-left">
+                                <h3 className="text-lg sm:text-xl font-bold mb-6 md:mb-8 text-center md:text-left">
                                     {day === 'day1' &&
                                         'Day 1 - October 4, 2025'}
                                     {day === 'day2' &&
@@ -213,9 +213,9 @@ export const ScheduleSection = () => {
 
                                 <div className="relative">
                                     {/* Timeline connector line */}
-                                    <div className="absolute left-0 md:left-1/4 top-0 bottom-0 w-px bg-border/60 ml-5 md:ml-0 hidden md:block z-10"></div>
+                                    <div className="absolute left-4 md:left-1/4 top-0 bottom-0 w-px bg-border/60 hidden sm:block z-10"></div>
 
-                                    <ul className="space-y-8 relative z-10">
+                                    <ul className="space-y-4 md:space-y-6 lg:space-y-8 relative z-10">
                                         {(schedule as any)[day].map(
                                             (event: any, index: number) => (
                                                 <motion.li
@@ -234,26 +234,26 @@ export const ScheduleSection = () => {
                                                     }}
                                                     className="relative z-10"
                                                 >
-                                                    <div className="md:grid md:grid-cols-4 gap-4 items-start">
+                                                    <div className="sm:grid sm:grid-cols-4 gap-3 sm:gap-4 items-start">
                                                         {/* Timeline dot */}
-                                                        <div className="absolute left-0 md:left-1/4 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center -ml-5 md:-ml-5 mt-1 hidden md:flex z-20">
-                                                            <div className="w-3 h-3 bg-primary rounded-full"></div>
+                                                        <div className="absolute left-4 md:left-1/4 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center -ml-3 sm:-ml-4 md:-ml-5 mt-1 hidden sm:flex z-20">
+                                                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full"></div>
                                                         </div>
 
                                                         {/* Time */}
-                                                        <div className="md:text-right pr-8 flex md:block items-center mb-2 md:mb-0 relative z-10">
-                                                            <Clock className="w-4 h-4 text-primary mr-2 md:hidden" />
-                                                            <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                                                        <div className="md:text-right pr-4 md:pr-8 flex sm:block items-center mb-2 md:mb-0 relative z-10">
+                                                            <Clock className="w-4 h-4 text-primary mr-2 sm:hidden" />
+                                                            <span className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
                                                                 {event.time}
                                                             </span>
                                                         </div>
 
                                                         {/* Event details */}
-                                                        <div className="md:col-span-3 bg-card rounded-xl shadow-md border border-border/40 hover:shadow-lg transition-shadow p-5 md:ml-6 relative z-10">
-                                                            <h4 className="text-lg font-semibold mb-2">
+                                                        <div className="sm:col-span-3 bg-card rounded-xl shadow-md border border-border/40 hover:shadow-lg transition-shadow p-4 sm:p-5 sm:ml-6 relative z-10">
+                                                            <h4 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
                                                                 {event.title}
                                                             </h4>
-                                                            <p className="text-muted-foreground">
+                                                            <p className="text-sm text-muted-foreground">
                                                                 {
                                                                     event.description
                                                                 }

@@ -14,7 +14,7 @@ export const AboutHero = () => {
     return (
         <section
             ref={headerRef}
-            className="relative h-screen flex items-center overflow-hidden border-b border-border/50"
+            className="relative min-h-screen flex items-center overflow-hidden border-b border-border/50"
         >
             {/* Background patterns */}
             <div className="absolute inset-0 bg-grid-small-black/[0.2] -z-10 dark:bg-grid-small-white/[0.2]" />
@@ -107,12 +107,13 @@ export const AboutHero = () => {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="order-1 lg:order-2"
                     >
-                        <div className="relative h-80 sm:h-96 lg:h-[450px] w-full">
+                        <div className="relative h-60 sm:h-80 md:h-96 lg:h-[450px] w-full md:mt-0 mt-20">
                             <Image
                                 src="/images/logos/iastam.png"
                                 alt="IASTAM"
                                 fill
-                                className="object-contain"
+                                className="object-contain p-2 sm:p-4"
+                                priority
                             />
                         </div>
                     </motion.div>
@@ -123,9 +124,9 @@ export const AboutHero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 0.5 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+                    className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
                 >
-                    <span className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                    <span className="text-xs uppercase tracking-wider text-muted-foreground mb-2 hidden sm:block">
                         Scroll to discover
                     </span>
                     <ChevronDown className="h-4 w-4 text-muted-foreground animate-bounce" />

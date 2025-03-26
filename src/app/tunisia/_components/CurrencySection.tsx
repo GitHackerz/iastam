@@ -62,7 +62,7 @@ export const CurrencySection = () => {
     };
 
     return (
-        <section ref={sectionRef} className="py-24 relative">
+        <section ref={sectionRef} className="py-16 md:py-24 relative">
             <div className="absolute inset-0 overflow-hidden z-0">
                 <DecorativeLines
                     variant="circuit"
@@ -79,7 +79,7 @@ export const CurrencySection = () => {
                         inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
                     }
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12 md:mb-16"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mx-auto mb-4">
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -93,7 +93,7 @@ export const CurrencySection = () => {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
                     {/* Currency Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -114,7 +114,7 @@ export const CurrencySection = () => {
                         </p>
 
                         <div className="bg-background rounded-xl overflow-hidden shadow-lg">
-                            <div className="bg-primary/10 p-4 flex justify-between items-center">
+                            <div className="bg-primary/10 p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                                 <h4 className="font-medium">
                                     Currency Converter
                                 </h4>
@@ -123,8 +123,8 @@ export const CurrencySection = () => {
                                     {new Date().toLocaleDateString()}
                                 </div>
                             </div>
-                            <div className="p-6 space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center">
+                            <div className="p-4 md:p-6 space-y-6">
+                                <div className="flex flex-col space-y-6 md:space-y-0 md:grid md:grid-cols-6 md:gap-4 md:items-center">
                                     <div className="md:col-span-2">
                                         <label
                                             htmlFor="amount"
@@ -141,39 +141,53 @@ export const CurrencySection = () => {
                                         />
                                     </div>
 
-                                    <div className="md:col-span-1 flex justify-center">
+                                    <div className="flex items-center justify-between md:justify-center md:col-span-1">
                                         <div className="flex items-center justify-center">
                                             <div
-                                                className={`w-10 h-10 rounded-full flex items-center justify-center bg-${fromCurrency === 'USD' ? 'blue-100 text-blue-600' : 'primary/10 text-primary'} font-bold`}
+                                                className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                                                    fromCurrency === 'USD'
+                                                        ? 'bg-blue-100 text-blue-600'
+                                                        : 'bg-primary/10 text-primary'
+                                                } font-bold`}
                                             >
                                                 {fromCurrency === 'USD'
                                                     ? '$'
                                                     : 'د.ت'}
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="md:col-span-1 flex justify-center">
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            onClick={handleSwapCurrencies}
-                                            className="relative"
-                                            disabled={isConverting}
-                                        >
-                                            <ArrowLeftRight
-                                                className={`w-5 h-5 transition-all duration-500 ${isConverting ? 'rotate-180 opacity-0' : ''}`}
-                                            />
-                                            <RefreshCw
-                                                className={`w-5 h-5 animate-spin absolute ${isConverting ? 'opacity-100' : 'opacity-0'}`}
-                                            />
-                                        </Button>
-                                    </div>
+                                        <div className="md:hidden">
+                                            <Button
+                                                variant="ghost"
+                                                size="icon"
+                                                onClick={handleSwapCurrencies}
+                                                className="relative"
+                                                disabled={isConverting}
+                                            >
+                                                <ArrowLeftRight
+                                                    className={`w-5 h-5 transition-all duration-500 ${
+                                                        isConverting
+                                                            ? 'rotate-180 opacity-0'
+                                                            : ''
+                                                    }`}
+                                                />
+                                                <RefreshCw
+                                                    className={`w-5 h-5 animate-spin absolute ${
+                                                        isConverting
+                                                            ? 'opacity-100'
+                                                            : 'opacity-0'
+                                                    }`}
+                                                />
+                                            </Button>
+                                        </div>
 
-                                    <div className="md:col-span-1 flex justify-center">
-                                        <div className="flex items-center justify-center">
+                                        <div className="flex items-center justify-center md:hidden">
                                             <div
-                                                className={`w-10 h-10 rounded-full flex items-center justify-center bg-${toCurrency === 'USD' ? 'blue-100 text-blue-600' : 'primary/10 text-primary'} font-bold`}
+                                                className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                                                    toCurrency === 'USD'
+                                                        ? 'bg-blue-100 text-blue-600'
+                                                        : 'bg-primary/10 text-primary'
+                                                } font-bold`}
                                             >
                                                 {toCurrency === 'USD'
                                                     ? '$'
@@ -182,7 +196,48 @@ export const CurrencySection = () => {
                                         </div>
                                     </div>
 
-                                    <div className="md:col-span-1 flex justify-center">
+                                    <div className="hidden md:flex md:col-span-1 md:justify-center">
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            onClick={handleSwapCurrencies}
+                                            className="relative"
+                                            disabled={isConverting}
+                                        >
+                                            <ArrowLeftRight
+                                                className={`w-5 h-5 transition-all duration-500 ${
+                                                    isConverting
+                                                        ? 'rotate-180 opacity-0'
+                                                        : ''
+                                                }`}
+                                            />
+                                            <RefreshCw
+                                                className={`w-5 h-5 animate-spin absolute ${
+                                                    isConverting
+                                                        ? 'opacity-100'
+                                                        : 'opacity-0'
+                                                }`}
+                                            />
+                                        </Button>
+                                    </div>
+
+                                    <div className="hidden md:flex md:col-span-1 md:justify-center">
+                                        <div className="flex items-center justify-center">
+                                            <div
+                                                className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                                                    toCurrency === 'USD'
+                                                        ? 'bg-blue-100 text-blue-600'
+                                                        : 'bg-primary/10 text-primary'
+                                                } font-bold`}
+                                            >
+                                                {toCurrency === 'USD'
+                                                    ? '$'
+                                                    : 'د.ت'}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center md:col-span-1">
                                         <div className="flex flex-col items-center">
                                             <span className="text-2xl font-bold">
                                                 {convertedAmount}
@@ -204,11 +259,15 @@ export const CurrencySection = () => {
                         </div>
 
                         <div className="pt-4">
-                            <Button variant="outline" className="group" asChild>
+                            <Button
+                                variant="outline"
+                                className="group w-full sm:w-auto"
+                                asChild
+                            >
                                 <Link
                                     href="https://www.bct.gov.tn/bct/siteprod/index.jsp"
                                     target="_blank"
-                                    className="flex items-center gap-2"
+                                    className="flex items-center gap-2 justify-center"
                                 >
                                     Check Current Exchange Rates
                                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -282,11 +341,11 @@ export const CurrencySection = () => {
                         </div>
 
                         <div className="pt-4">
-                            <Button className="group" asChild>
+                            <Button className="group w-full sm:w-auto" asChild>
                                 <Link
                                     href="https://www.discovertunisia.com"
                                     target="_blank"
-                                    className="flex items-center gap-2"
+                                    className="flex items-center gap-2 justify-center"
                                 >
                                     Visit Official Tourism Website
                                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

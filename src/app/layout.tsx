@@ -37,7 +37,9 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <Navbar />
-                    <main className="bg-background">{children}</main>
+                    <main className="bg-background overflow-x-hidden">
+                        {children}
+                    </main>
                     <Footer />
                 </ThemeProvider>
             </body>

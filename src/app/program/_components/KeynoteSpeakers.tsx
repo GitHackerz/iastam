@@ -98,7 +98,7 @@ export const KeynoteSpeakers = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                     {speakersData.map((speaker, index) => (
                         <motion.div
                             key={index}
@@ -111,7 +111,7 @@ export const KeynoteSpeakers = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border hover:border-primary/30"
                         >
-                            <div className="relative h-64 overflow-hidden">
+                            <div className="relative h-44 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
                                 <Image
                                     src={speaker.image}
                                     alt={speaker.name}
@@ -119,38 +119,40 @@ export const KeynoteSpeakers = () => {
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
-                                <div className="absolute bottom-0 w-full p-4 text-white">
-                                    <h3 className="font-bold">
+                                <div className="absolute bottom-0 w-full p-3 sm:p-4 text-white">
+                                    <h3 className="font-bold text-sm sm:text-base">
                                         {speaker.name}
                                     </h3>
-                                    <p className="text-sm text-white/80">
+                                    <p className="text-xs sm:text-sm text-white/80">
                                         {speaker.title}
                                     </p>
                                 </div>
                             </div>
-                            <div className="p-5 space-y-4">
+                            <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
                                 <div>
-                                    <h4 className="font-semibold text-primary">
+                                    <h4 className="font-semibold text-primary text-sm sm:text-base">
                                         Topic:
                                     </h4>
-                                    <p className="text-sm">{speaker.topic}</p>
+                                    <p className="text-xs sm:text-sm">
+                                        {speaker.topic}
+                                    </p>
                                 </div>
-                                <p className="text-sm text-muted-foreground line-clamp-3">
+                                <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
                                     {speaker.bio}
                                 </p>
-                                <div className="flex gap-2 pt-2">
+                                <div className="flex gap-2 pt-1 sm:pt-2">
                                     {speaker.social.linkedin && (
                                         <Button
                                             variant="outline"
                                             size="icon"
                                             asChild
-                                            className="rounded-full w-8 h-8 p-0"
+                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
                                         >
                                             <Link
                                                 href={speaker.social.linkedin}
                                                 target="_blank"
                                             >
-                                                <Linkedin className="w-4 h-4" />
+                                                <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
                                             </Link>
                                         </Button>
                                     )}
@@ -159,13 +161,13 @@ export const KeynoteSpeakers = () => {
                                             variant="outline"
                                             size="icon"
                                             asChild
-                                            className="rounded-full w-8 h-8 p-0"
+                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
                                         >
                                             <Link
                                                 href={speaker.social.twitter}
                                                 target="_blank"
                                             >
-                                                <Twitter className="w-4 h-4" />
+                                                <Twitter className="w-3 h-3 sm:w-4 sm:h-4" />
                                             </Link>
                                         </Button>
                                     )}
@@ -174,13 +176,13 @@ export const KeynoteSpeakers = () => {
                                             variant="outline"
                                             size="icon"
                                             asChild
-                                            className="rounded-full w-8 h-8 p-0"
+                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
                                         >
                                             <Link
                                                 href={speaker.social.website}
                                                 target="_blank"
                                             >
-                                                <ExternalLink className="w-4 h-4" />
+                                                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                                             </Link>
                                         </Button>
                                     )}

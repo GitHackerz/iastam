@@ -74,7 +74,7 @@ export const VenueSection = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={
@@ -83,6 +83,7 @@ export const VenueSection = () => {
                                 : { opacity: 0, x: -50 }
                         }
                         transition={{ duration: 0.7 }}
+                        className="mx-auto md:mx-0 max-w-md w-full"
                     >
                         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
                             <Image
@@ -102,7 +103,7 @@ export const VenueSection = () => {
                                 : { opacity: 0, x: 50 }
                         }
                         transition={{ duration: 0.7 }}
-                        className="space-y-6"
+                        className="space-y-4 md:space-y-6"
                     >
                         <h3 className="text-2xl font-bold">
                             L&apos;Orient Palace, Sousse
@@ -117,9 +118,9 @@ export const VenueSection = () => {
                             social events.
                         </p>
 
-                        <div className="pt-4 space-y-4">
+                        <div className="pt-2 md:pt-4 space-y-3 md:space-y-4">
                             <h4 className="font-semibold">Venue Features:</h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                                 {venueFeatures.map((feature, index) => (
                                     <div
                                         key={index}
@@ -154,7 +155,7 @@ export const VenueSection = () => {
                     </motion.div>
                 </div>
 
-                <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="mt-6 sm:mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         animate={
@@ -165,7 +166,7 @@ export const VenueSection = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="bg-card rounded-xl overflow-hidden shadow-lg"
                     >
-                        <div className="relative h-48">
+                        <div className="relative h-40 sm:h-48">
                             <Image
                                 src="/images/venue/conference-hall.jpg"
                                 alt="Main Conference Hall"
@@ -195,7 +196,7 @@ export const VenueSection = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="bg-card rounded-xl overflow-hidden shadow-lg"
                     >
-                        <div className="relative h-48">
+                        <div className="relative h-40 sm:h-48">
                             <Image
                                 src="/images/venue/breakout-rooms.jpg"
                                 alt="Breakout Rooms"
@@ -225,7 +226,7 @@ export const VenueSection = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="bg-card rounded-xl overflow-hidden shadow-lg"
                     >
-                        <div className="relative h-48">
+                        <div className="relative h-40 sm:h-48">
                             <Image
                                 src="/images/venue/beachfront.jpg"
                                 alt="Mediterranean Beachfront"
