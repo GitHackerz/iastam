@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { defaultMetadata } from './metadata';
 import { ThemeProvider } from '@/providers/theme-provider';
-import { MouseCursor } from '@/components/mouse-cursor';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/layout/footer';
@@ -16,7 +15,6 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    // Create structured data for the event
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Event',
@@ -82,7 +80,6 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <MouseCursor />
                     <Navbar />
                     {children}
                     <Footer />

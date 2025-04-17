@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ContactForm } from '@/app/contact/_components/contact-form';
@@ -8,17 +7,6 @@ import { ContactInfo } from '@/app/contact/_components/contact-info';
 import { ContactHero } from './_components/contact-hero';
 import { ContactMap } from './_components/contact-map';
 import { Faq } from './_components/faq';
-
-export const metadata: Metadata = {
-    title: 'Contact & Support',
-    description:
-        'Get in touch with the IASTAM 5 organizing committee. Find venue information, contact details, and answers to frequently asked questions about the IEEE IAS Tunisia Annual Meeting.',
-    openGraph: {
-        title: 'Contact & Support | IASTAM 5',
-        description:
-            'Contact us for any inquiries about IASTAM 5, including registration, sponsorship opportunities, and general information.',
-    },
-};
 
 export default function ContactPage() {
     const [ref, inView] = useInView({
@@ -28,18 +16,13 @@ export default function ContactPage() {
 
     return (
         <div className="bg-background min-h-screen">
-            {/* Hero Section */}
             <ContactHero />
-
-            {/* Contact Form Section */}
             <section
                 ref={ref}
                 className="relative w-full py-24 overflow-hidden"
             >
-                {/* Background patterns */}
                 <div className="absolute inset-0 bg-grid-small-black/[0.2] -z-10 dark:bg-grid-small-white/[0.2]" />
 
-                {/* Abstract shapes */}
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-20 right-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
                     <div
@@ -101,11 +84,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
-
-            {/* Map Section */}
             <ContactMap />
-
-            {/* FAQ Section */}
             <Faq />
         </div>
     );

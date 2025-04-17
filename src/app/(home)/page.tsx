@@ -12,21 +12,13 @@ export default function Home() {
     return (
         <main className="min-h-screen">
             <HeroSection />
-
             <AboutSection />
-
             <TimeLeftSection />
-
             <HostSection />
-
             <SpeakersSection />
-
             <PreviousEditions />
-
             <PartnersSection />
-
             <SponsorsSection />
-
             <LocationSection />
         </main>
     );
