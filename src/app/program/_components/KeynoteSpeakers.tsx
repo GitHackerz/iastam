@@ -3,53 +3,49 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import { Linkedin, Twitter, ExternalLink } from 'lucide-react';
+import { Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-const speakersData = [
+const speakers = [
     {
-        name: 'Prof. Sarah Johnson',
-        title: 'MIT, USA',
-        topic: 'The Future of Smart Grids',
-        bio: 'Prof. Sarah Johnson is a leading researcher in power systems and smart grid technologies at MIT. She has published over 100 papers and holds multiple patents in energy management systems.',
-        image: '/images/speakers/speaker1.jpg',
+        name: 'Karim Akkari',
+        role: 'AI Engineer',
+        image: '/images/speakers/karim.jpg',
+        alt: 'Karim Akkari - AI Engineer and Keynote Speaker at IASTAM 5',
         social: {
-            linkedin: 'https://linkedin.com/in/example',
-            twitter: 'https://twitter.com/example',
-            website: 'https://example.com',
+            linkedin: 'https://linkedin.com/in/johndoe',
+            twitter: 'https://twitter.com/johndoe',
         },
     },
     {
-        name: 'Dr. James Chen',
-        title: 'Cybersecurity Institute, Singapore',
-        topic: 'Industrial IoT Security',
-        bio: 'Dr. James Chen heads the Industrial Cybersecurity Lab at the Cybersecurity Institute. His work focuses on securing critical infrastructure and industrial control systems against emerging threats.',
-        image: '/images/speakers/speaker2.jpg',
+        name: 'Mohamed El Hedi',
+        role: 'AI Engineer',
+        image: '/images/speakers/hedi.png',
+        alt: 'Mohamed El Hedi - AI Engineer and Keynote Speaker at IASTAM 5',
         social: {
-            linkedin: 'https://linkedin.com/in/example',
-            twitter: 'https://twitter.com/example',
+            linkedin: 'https://linkedin.com/in/johndoe',
+            twitter: 'https://twitter.com/johndoe',
         },
     },
     {
-        name: 'Prof. Amina Zaki',
-        title: 'Energy Research Center, Morocco',
-        topic: 'Energy Transition in North Africa',
-        bio: 'Prof. Amina Zaki specializes in renewable energy policy and sustainable development. She advises several North African governments on energy transition strategies and regional cooperation.',
-        image: '/images/speakers/speaker3.jpg',
+        name: 'Hichem Fantar',
+        role: 'AI Engineer',
+        image: '/images/speakers/hichem.jpg',
+        alt: 'Hichem Fantar - AI Engineer and Keynote Speaker at IASTAM 5',
         social: {
-            linkedin: 'https://linkedin.com/in/example',
-            website: 'https://example.com',
+            linkedin: 'https://linkedin.com/in/johndoe',
+            twitter: 'https://twitter.com/johndoe',
         },
     },
     {
-        name: 'Dr. Mohammed Farid',
-        title: 'Industrial Automation Systems, Tunisia',
-        topic: 'Industry 4.0 Implementation in Developing Economies',
-        bio: 'Dr. Farid has led numerous industrial automation projects across North Africa and has pioneered affordable Industry 4.0 solutions for small and medium enterprises.',
-        image: '/images/speakers/speaker4.jpg',
+        name: 'Mounir Frija',
+        role: 'AI Engineer',
+        image: '/images/speakers/mounir.png',
+        alt: 'Mounir Frija - AI Engineer and Keynote Speaker at IASTAM 5',
         social: {
-            linkedin: 'https://linkedin.com/in/example',
+            linkedin: 'https://linkedin.com/in/johndoe',
+            twitter: 'https://twitter.com/johndoe',
         },
     },
 ];
@@ -99,7 +95,7 @@ export const KeynoteSpeakers = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-                    {speakersData.map((speaker, index) => (
+                    {speakers.map((speaker, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
@@ -114,9 +110,11 @@ export const KeynoteSpeakers = () => {
                             <div className="relative h-44 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
                                 <Image
                                     src={speaker.image}
-                                    alt={speaker.name}
+                                    alt={speaker.alt}
                                     fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="object-cover"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                    loading="lazy"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
                                 <div className="absolute bottom-0 w-full p-3 sm:p-4 text-white">
@@ -124,22 +122,11 @@ export const KeynoteSpeakers = () => {
                                         {speaker.name}
                                     </h3>
                                     <p className="text-xs sm:text-sm text-white/80">
-                                        {speaker.title}
+                                        {speaker.role}
                                     </p>
                                 </div>
                             </div>
                             <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
-                                <div>
-                                    <h4 className="font-semibold text-primary text-sm sm:text-base">
-                                        Topic:
-                                    </h4>
-                                    <p className="text-xs sm:text-sm">
-                                        {speaker.topic}
-                                    </p>
-                                </div>
-                                <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
-                                    {speaker.bio}
-                                </p>
                                 <div className="flex gap-2 pt-1 sm:pt-2">
                                     {speaker.social.linkedin && (
                                         <Button
@@ -168,21 +155,6 @@ export const KeynoteSpeakers = () => {
                                                 target="_blank"
                                             >
                                                 <Twitter className="w-3 h-3 sm:w-4 sm:h-4" />
-                                            </Link>
-                                        </Button>
-                                    )}
-                                    {speaker.social.website && (
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            asChild
-                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
-                                        >
-                                            <Link
-                                                href={speaker.social.website}
-                                                target="_blank"
-                                            >
-                                                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                                             </Link>
                                         </Button>
                                     )}

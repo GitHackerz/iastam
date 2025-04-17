@@ -34,9 +34,9 @@ export const ContactMap = () => {
                         Find Us
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        IASTAM 5 will be held at the L&apos;Orient Palace, a
-                        luxury resort located in the beautiful coastal city of
-                        Sousse, Tunisia.
+                        IASTAM 5 will be held at the Hotel Royal, a luxury
+                        resort located in the beautiful coastal city of
+                        Hammamet, Tunisia.
                     </p>
                 </motion.div>
 
@@ -49,7 +49,7 @@ export const ContactMap = () => {
                     className="aspect-video rounded-2xl overflow-hidden shadow-xl shadow-primary/10 bg-card"
                 >
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.7306106896647!2d10.594121875778937!3d35.82603257228619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130275759ac9d10d%3A0x698e3915c408b8ee!2sL&#39;Orient%20Palace%20Resort%20%26%20Spa!5e0!3m2!1sen!2sus!4v1699035051929!5m2!1sen!2sus"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.1755169150883!2d10.545418075467596!3d36.38074487236963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd63eb6cbfcdcb%3A0x879a5c87a51db003!2sLe%20Royal%20Hotels%20and%20Resorts%20-%20Hammamet!5e0!3m2!1sen!2stn!4v1744906735507!5m2!1sen!2stn"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

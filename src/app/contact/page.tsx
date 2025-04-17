@@ -1,5 +1,6 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ContactForm } from '@/app/contact/_components/contact-form';
@@ -7,6 +8,17 @@ import { ContactInfo } from '@/app/contact/_components/contact-info';
 import { ContactHero } from './_components/contact-hero';
 import { ContactMap } from './_components/contact-map';
 import { Faq } from './_components/faq';
+
+export const metadata: Metadata = {
+    title: 'Contact & Support',
+    description:
+        'Get in touch with the IASTAM 5 organizing committee. Find venue information, contact details, and answers to frequently asked questions about the IEEE IAS Tunisia Annual Meeting.',
+    openGraph: {
+        title: 'Contact & Support | IASTAM 5',
+        description:
+            'Contact us for any inquiries about IASTAM 5, including registration, sponsorship opportunities, and general information.',
+    },
+};
 
 export default function ContactPage() {
     const [ref, inView] = useInView({

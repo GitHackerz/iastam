@@ -70,7 +70,7 @@ export default function LocationSection() {
                         className="space-y-8"
                     >
                         <h3 className="text-2xl font-semibold text-primary">
-                            Hotel XXX, Sousse
+                            Hotel Royal, Hammamet
                         </h3>
 
                         <div className="space-y-5">
@@ -86,7 +86,9 @@ export default function LocationSection() {
                                         Address
                                     </h4>
                                     <p className="text-muted-foreground">
-                                        123 Avenue de la Plage, Sousse, Tunisia
+                                        9GHX+Q8H، Yasmine Hammamet B.P 237
+                                        <br />
+                                        8050, Yasmine Hammamet, Tunisia
                                     </p>
                                 </div>
                             </motion.div>
@@ -101,7 +103,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Phone</h4>
                                     <p className="text-muted-foreground">
-                                        +216 XX XXX XXX
+                                        +216 55 176 296
                                     </p>
                                 </div>
                             </motion.div>
@@ -116,7 +118,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Email</h4>
                                     <p className="text-muted-foreground">
-                                        contact@iastam.org
+                                        landolsi.selim@ieee.org
                                     </p>
                                 </div>
                             </motion.div>
@@ -145,7 +147,7 @@ export default function LocationSection() {
                     >
                         <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-primary/10">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_URL"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.1755169150883!2d10.545418075467596!3d36.38074487236963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd63eb6cbfcdcb%3A0x879a5c87a51db003!2sLe%20Royal%20Hotels%20and%20Resorts%20-%20Hammamet!5e0!3m2!1sen!2stn!4v1744906735507!5m2!1sen!2stn"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}

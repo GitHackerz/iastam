@@ -141,12 +141,12 @@ export default function HeroSection() {
                     >
                         <div className="flex items-center gap-2">
                             <Calendar className="h-5 w-5 text-primary" />
-                            <span>A - B October 2025</span>
+                            <span>October 4-6, 2025</span>
                         </div>
                         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-primary" />
                         <div className="flex items-center gap-2">
                             <MapPin className="h-5 w-5 text-primary" />
-                            <span>Hotel xxx, Sousse, Tunisia</span>
+                            <span>Hotel Royal, Hammamet, Tunisia</span>
                         </div>
                     </motion.div>
 
