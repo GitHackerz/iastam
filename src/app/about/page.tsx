@@ -1,5 +1,3 @@
-'use client';
-
 import { AboutHero, OrganizationsList } from './_components';
 
 export default function AboutPage() {

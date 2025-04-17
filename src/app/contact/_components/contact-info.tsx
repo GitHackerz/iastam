@@ -1,39 +1,59 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+'use client';
 
-export function ContactInfo() {
+import { MapPin, Mail, Phone, Calendar } from 'lucide-react';
+
+export const ContactInfo = () => {
     return (
         <div className="space-y-6">
-            <h3 className="text-2xl font-semibold tracking-tight">
-                Get in Touch
-            </h3>
-            <p className="text-muted-foreground">
-                Have questions? We&apos;d love to hear from you. Send us a
-                message and we&apos;ll respond as soon as possible.
-            </p>
-            <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <span>
-                        L&apos;Orient Palace, Boulevard 14 Janvier, Sousse 4000,
+            <div className="flex items-start gap-4 group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                <div className="p-3 rounded-full bg-primary/10 text-primary mt-0.5">
+                    <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                    <h4 className="font-medium mb-1">Venue Address</h4>
+                    <p className="text-muted-foreground">
+                        Hotel Royal
+                        <br />
+                        9GHX+Q8H، Yasmine Hammamet B.P 237
+                        <br />
+                        8050, Yasmine Hammamet
+                        <br />
                         Tunisia
-                    </span>
+                    </p>
                 </div>
-                <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <a
-                        href="mailto:contact@iastam.ieee.tn"
-                        className="hover:text-primary"
-                    >
-                        contact@iastam.ieee.tn
-                    </a>
+            </div>
+
+            <div className="flex items-start gap-4 group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                <div className="p-3 rounded-full bg-primary/10 text-primary mt-0.5">
+                    <Calendar className="w-5 h-5" />
                 </div>
-                <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <a href="tel:+21670685454" className="hover:text-primary">
-                        +216 70 685 454
-                    </a>
+                <div>
+                    <h4 className="font-medium mb-1">Event Dates</h4>
+                    <p className="text-muted-foreground">October 4-6, 2025</p>
+                </div>
+            </div>
+
+            <div className="flex items-start gap-4 group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                <div className="p-3 rounded-full bg-primary/10 text-primary mt-0.5">
+                    <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                    <h4 className="font-medium mb-1">Email</h4>
+                    <p className="text-muted-foreground">
+                        landolsi.selim@ieee.org
+                    </p>
+                </div>
+            </div>
+
+            <div className="flex items-start gap-4 group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                <div className="p-3 rounded-full bg-primary/10 text-primary mt-0.5">
+                    <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                    <h4 className="font-medium mb-1">Phone</h4>
+                    <p className="text-muted-foreground">+216 55 176 296</p>
                 </div>
             </div>
         </div>
     );
-}
+};

@@ -180,6 +180,11 @@ export const ScheduleSection = () => {
                                 onClick={() => setSelectedDay(day)}
                             >
                                 Day {index + 1}
+                                <span className="block text-[10px] font-normal mt-0.5">
+                                    {day === 'day1' && 'Oct 4'}
+                                    {day === 'day2' && 'Oct 5'}
+                                    {day === 'day3' && 'Oct 6'}
+                                </span>
                             </button>
                         ))}
                     </div>

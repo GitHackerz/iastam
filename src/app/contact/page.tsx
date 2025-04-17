@@ -16,18 +16,13 @@ export default function ContactPage() {
 
     return (
         <div className="bg-background min-h-screen">
-            {/* Hero Section */}
             <ContactHero />
-
-            {/* Contact Form Section */}
             <section
                 ref={ref}
                 className="relative w-full py-24 overflow-hidden"
             >
-                {/* Background patterns */}
                 <div className="absolute inset-0 bg-grid-small-black/[0.2] -z-10 dark:bg-grid-small-white/[0.2]" />
 
-                {/* Abstract shapes */}
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-20 right-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
                     <div
@@ -89,11 +84,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
-
-            {/* Map Section */}
             <ContactMap />
-
-            {/* FAQ Section */}
             <Faq />
         </div>
     );

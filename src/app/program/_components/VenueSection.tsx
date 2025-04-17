@@ -67,10 +67,9 @@ export const VenueSection = () => {
                         Conference <span className="text-primary">Venue</span>
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        IASTAM 5 will be held at the prestigious L&apos;Orient
-                        Palace, a luxury beachfront resort in Sousse, Tunisia,
-                        offering world-class facilities for all conference
-                        activities.
+                        IASTAM 5 will be held at the prestigious Hotel Royal in
+                        Hammamet, Tunisia, offering world-class facilities for
+                        all conference activities.
                     </p>
                 </motion.div>
 
@@ -88,7 +87,7 @@ export const VenueSection = () => {
                         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
                             <Image
                                 src="/images/hotel.jpg"
-                                alt="L'Orient Palace, Sousse"
+                                alt="Hotel Royal, Hammamet"
                                 fill
                                 className="object-cover"
                             />
@@ -106,16 +105,16 @@ export const VenueSection = () => {
                         className="space-y-4 md:space-y-6"
                     >
                         <h3 className="text-2xl font-bold">
-                            L&apos;Orient Palace, Sousse
+                            Hotel Royal, Hammamet
                         </h3>
 
                         <p className="text-muted-foreground">
                             Located on the stunning Mediterranean coast of
-                            Sousse, L&apos;Orient Palace combines luxury
-                            amenities with sophisticated conference facilities.
-                            The venue provides an inspiring and comfortable
-                            setting for IASTAM&apos;s sessions, networking, and
-                            social events.
+                            Hammamet, Hotel Royal combines luxury amenities with
+                            sophisticated conference facilities. The venue
+                            provides an inspiring and comfortable setting for
+                            IASTAM&apos;s sessions, networking, and social
+                            events.
                         </p>
 
                         <div className="pt-2 md:pt-4 space-y-3 md:space-y-4">
@@ -145,11 +144,13 @@ export const VenueSection = () => {
                         <div className="pt-4">
                             <h4 className="font-semibold mb-2">Address:</h4>
                             <p className="text-muted-foreground">
-                                L&apos;Orient Palace
+                                Hotel Royal
                                 <br />
-                                Boulevard 14 Janvier
+                                9GHX+Q8H، Yasmine Hammamet B.P 237
                                 <br />
-                                Sousse 4000, Tunisia
+                                8050, Yasmine Hammamet
+                                <br />
+                                Tunisia
                             </p>
                         </div>
                     </motion.div>

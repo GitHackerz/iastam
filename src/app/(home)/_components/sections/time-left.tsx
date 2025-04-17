@@ -148,11 +148,11 @@ export default function TimeLeftSection() {
                 >
                     <span className="flex items-center gap-2">
                         <Calendar className="w-5 h-5 text-primary" />
-                        <span>April 15-17, 2025</span>
+                        <span>October 4-6, 2025</span>
                     </span>
                     <span className="flex items-center gap-2">
                         <MapPin className="w-5 h-5 text-primary" />
-                        <span>San Francisco, California</span>
+                        <span>Hotel Royal, Hammamet, Tunisia</span>
                     </span>
                 </motion.div>
 
