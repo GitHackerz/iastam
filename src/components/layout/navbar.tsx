@@ -86,9 +86,20 @@ export default function Navbar() {
                             {/* <ThemeToggle /> */}
                             <Button
                                 asChild
-                                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                                className={`bg-primary text-primary-foreground hover:bg-primary/90 ${
+                                    ctaButton.disabled
+                                        ? 'opacity-70 cursor-not-allowed hover:bg-primary relative overflow-hidden'
+                                        : ''
+                                }`}
+                                disabled={ctaButton.disabled}
                             >
-                                <Link href={ctaButton.href}>
+                                <Link
+                                    href={ctaButton.href}
+                                    className={`${ctaButton.disabled ? 'pointer-events-none' : ''}`}
+                                    onClick={e =>
+                                        ctaButton.disabled && e.preventDefault()
+                                    }
+                                >
                                     {ctaButton.label}
                                 </Link>
                             </Button>
@@ -121,11 +132,23 @@ export default function Navbar() {
                                     </div> */}
                                     <Separator className="my-2 mx-14" />
                                     <Button
-                                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4"
+                                        className={`w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4 ${
+                                            ctaButton.disabled
+                                                ? 'opacity-70 cursor-not-allowed hover:bg-primary relative overflow-hidden'
+                                                : ''
+                                        }`}
+                                        disabled={ctaButton.disabled}
                                         asChild
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        <Link href={ctaButton.href}>
+                                        <Link
+                                            href={ctaButton.href}
+                                            className={`${ctaButton.disabled ? 'pointer-events-none' : ''}`}
+                                            onClick={e =>
+                                                ctaButton.disabled &&
+                                                e.preventDefault()
+                                            }
+                                        >
                                             {ctaButton.label}
                                         </Link>
                                     </Button>

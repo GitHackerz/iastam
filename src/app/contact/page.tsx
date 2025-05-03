@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer';
 import { ContactForm } from '@/app/contact/_components/contact-form';
 import { ContactInfo } from '@/app/contact/_components/contact-info';
 import { ContactHero } from './_components/contact-hero';
-import { ContactMap } from './_components/contact-map';
 import { Faq } from './_components/faq';
 
 export default function ContactPage() {
@@ -84,7 +83,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
-            <ContactMap />
+            {/* <ContactMap /> */}
             <Faq />
         </div>
     );

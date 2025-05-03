@@ -328,7 +328,7 @@ export const OrganizationsList = () => {
             </div>
 
             {/* Organizations list with smooth scrolling IDs */}
-            <div className="container max-w-6xl mx-auto px-4">
+            <div className="container max-w-6xl mx-auto px-4 pb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredOrganizations.map((org, index) => (
                         <motion.div
@@ -336,62 +336,110 @@ export const OrganizationsList = () => {
                             id={`org-${index}`}
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="relative overflow-hidden rounded-xl border border-border hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group bg-background"
+                            transition={{
+                                duration: 0.5,
+                                delay: index * 0.1,
+                                type: 'spring',
+                                stiffness: 100,
+                            }}
+                            whileHover={{
+                                y: -10,
+                                transition: { duration: 0.2 },
+                            }}
+                            className="group"
                         >
-                            <div className="p-6 space-y-5">
-                                <div className="flex justify-between items-start">
-                                    <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary/5 rounded-full p-2">
-                                        <Image
-                                            src={org.logo}
-                                            alt={org.title}
-                                            width={40}
-                                            height={40}
-                                            className="object-contain"
-                                        />
+                            <div className="relative overflow-hidden rounded-xl border border-border bg-background/50 backdrop-blur-sm shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col">
+                                {/* Decorative elements */}
+                                <div className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 bg-primary/5 rounded-full blur-xl opacity-70 transition-opacity group-hover:opacity-100"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 -ml-12 -mb-12 bg-primary/5 rounded-full blur-xl opacity-70 transition-opacity group-hover:opacity-100"></div>
+
+                                <div className="p-6 space-y-5 relative z-10 flex-grow flex flex-col">
+                                    <div className="flex items-start gap-4 border-b border-border/50 pb-4">
+                                        <motion.div
+                                            className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-primary/5 rounded-full p-3"
+                                            whileHover={{
+                                                rotate: 5,
+                                                scale: 1.05,
+                                            }}
+                                            transition={{
+                                                type: 'spring',
+                                                stiffness: 300,
+                                            }}
+                                        >
+                                            <Image
+                                                src={org.logo}
+                                                alt={org.title}
+                                                width={50}
+                                                height={50}
+                                                className="object-contain"
+                                            />
+                                        </motion.div>
+                                        <h3 className="text-xl font-semibold tracking-tight flex-1 group-hover:text-primary transition-colors duration-300">
+                                            {org.title}
+                                        </h3>
                                     </div>
-                                    <h3 className="text-xl font-semibold tracking-tight line-clamp-2 flex-1 ml-3 group-hover:text-primary transition-colors duration-300">
-                                        {org.title}
-                                    </h3>
-                                </div>
-                                <div className="text-sm text-muted-foreground space-y-2">
-                                    {expandedIndex === index ? (
-                                        <>{org.description}</>
-                                    ) : (
-                                        <div className="line-clamp-3">
+
+                                    <div className="text-sm text-muted-foreground space-y-3 flex-grow">
+                                        <motion.div
+                                            animate={{
+                                                height:
+                                                    expandedIndex === index
+                                                        ? 'auto'
+                                                        : '4.5rem',
+                                                opacity: 1,
+                                            }}
+                                            initial={{ opacity: 0 }}
+                                            transition={{ duration: 0.4 }}
+                                            className="overflow-hidden"
+                                        >
                                             {org.description}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="pt-2 flex justify-between items-center">
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        onClick={() => handleExpand(index)}
-                                        className="text-primary hover:text-primary hover:bg-primary/5"
-                                    >
-                                        {expandedIndex === index
-                                            ? 'Read less'
-                                            : 'Read more'}
-                                    </Button>
-                                    {org.website && (
+                                        </motion.div>
+                                    </div>
+
+                                    <div className="pt-4 flex justify-between items-center border-t border-border/50 mt-auto">
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="text-primary hover:text-primary hover:bg-primary/5"
-                                            asChild
+                                            onClick={() => handleExpand(index)}
+                                            className="text-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
                                         >
-                                            <a
-                                                href={org.website}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1"
+                                            <motion.span
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 1 }}
                                             >
-                                                Visit
-                                                <ChevronRight className="w-3 h-3" />
-                                            </a>
+                                                {expandedIndex === index
+                                                    ? 'Read less'
+                                                    : 'Read more'}
+                                            </motion.span>
                                         </Button>
-                                    )}
+
+                                        {org.website && (
+                                            <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                className="text-primary hover:text-primary hover:bg-primary/5 transition-all duration-300"
+                                                asChild
+                                            >
+                                                <a
+                                                    href={org.website}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-2 group/link"
+                                                >
+                                                    Visit
+                                                    <motion.div
+                                                        whileHover={{ x: 3 }}
+                                                        transition={{
+                                                            type: 'spring',
+                                                            stiffness: 400,
+                                                        }}
+                                                    >
+                                                        <ChevronRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
+                                                    </motion.div>
+                                                </a>
+                                            </Button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
@@ -399,30 +447,42 @@ export const OrganizationsList = () => {
                 </div>
             </div>
 
-            {/* Back to top button with smooth scroll animation */}
-            <div className="container max-w-6xl mx-auto px-4 py-16 flex justify-center">
+            {/* Back to top button with improved animation */}
+            <div className="container max-w-6xl mx-auto px-4 py-12 flex justify-center">
                 <motion.a
                     href="#"
                     onClick={scrollToTop}
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200 group px-4 py-2 rounded-full border border-border hover:border-primary"
-                    whileHover={{ y: -2 }}
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group px-5 py-2.5 rounded-full border border-border hover:border-primary hover:shadow-md hover:shadow-primary/5 bg-background/50 backdrop-blur-sm"
+                    whileHover={{
+                        y: -3,
+                        boxShadow: '0 10px 25px -5px rgba(0, 128, 0, 0.1)',
+                    }}
                     initial={{ opacity: 1 }}
-                    whileTap={{ opacity: 0.8 }}
+                    whileTap={{ scale: 0.97 }}
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transition-transform group-hover:-translate-y-1 duration-200"
+                    <motion.div
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: 'easeInOut',
+                        }}
                     >
-                        <path d="m18 15-6-6-6 6" />
-                    </svg>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="transition-transform group-hover:-translate-y-1 duration-300"
+                        >
+                            <path d="m18 15-6-6-6 6" />
+                        </svg>
+                    </motion.div>
                     Back to top
                 </motion.a>
             </div>

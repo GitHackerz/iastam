@@ -11,10 +11,10 @@ export const navLinks = [
         label: 'Tunisia',
         href: '/tunisia',
     },
-    {
-        label: 'Program',
-        href: '/program',
-    },
+    // {
+    //     label: 'Program',
+    //     href: '/program',
+    // },
     {
         label: 'Contact',
         href: '/contact',
@@ -22,6 +22,7 @@ export const navLinks = [
 ];
 
 export const ctaButton = {
-    label: 'Register Now',
-    href: '/register',
+    label: 'Registration Soon',
+    href: '#',
+    disabled: true,
 };
