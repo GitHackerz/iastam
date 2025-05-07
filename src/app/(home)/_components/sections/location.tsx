@@ -6,34 +6,34 @@ import { MapPin, Phone, Mail, MapIcon } from 'lucide-react';
 import DecorativeLines from '@/components/ui/decorative-lines';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import {
+    hotelName,
+    hotelAddress,
+    chairEmail,
+    chairPhone,
+} from '@/constants/info';
+import { venueInfo } from '@/constants/venue';
 
 export default function LocationSection() {
     const [sectionRef, inView] = useInView({
         triggerOnce: false,
         threshold: 0.2,
-        rootMargin: '-100px 0px',
     });
 
     return (
         <section
+            id="location"
             ref={sectionRef}
-            className="py-32 relative bg-background overflow-hidden"
+            className="py-24 relative overflow-hidden bg-background"
         >
-            {/* Background decorative elements */}
-            <div className="absolute inset-0 overflow-hidden z-0">
-                <DecorativeLines
-                    variant="waves"
-                    inView={inView}
-                    opacity={0.12}
-                    color="var(--primary)"
-                />
-            </div>
+            {/* Background pattern */}
+            <div className="absolute inset-0 z-0 bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]" />
 
-            {/* Animated gradient blobs */}
+            {/* Abstract shapes */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/4 right-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
+                <div className="absolute top-1/3 left-1/5 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
                 <div
-                    className="absolute bottom-1/3 left-12 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
+                    className="absolute bottom-1/3 right-1/5 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
                     style={{ animationDelay: '1s' }}
                 />
             </div>
@@ -70,7 +70,7 @@ export default function LocationSection() {
                         className="space-y-8"
                     >
                         <h3 className="text-2xl font-semibold text-primary">
-                            Hotel Royal, Hammamet
+                            {hotelName}
                         </h3>
 
                         <div className="space-y-5">
@@ -86,9 +86,11 @@ export default function LocationSection() {
                                         Address
                                     </h4>
                                     <p className="text-muted-foreground">
-                                        9GHX+Q8H، Yasmine Hammamet B.P 237
+                                        {hotelAddress.line1}
                                         <br />
-                                        8050, Yasmine Hammamet, Tunisia
+                                        {hotelAddress.postalCode},{' '}
+                                        {hotelAddress.city},{' '}
+                                        {hotelAddress.country}
                                     </p>
                                 </div>
                             </motion.div>
@@ -103,7 +105,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Phone</h4>
                                     <p className="text-muted-foreground">
-                                        +216 55 176 296
+                                        {chairPhone}
                                     </p>
                                 </div>
                             </motion.div>
@@ -118,7 +120,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Email</h4>
                                     <p className="text-muted-foreground">
-                                        landolsi.selim@ieee.org
+                                        {chairEmail}
                                     </p>
                                 </div>
                             </motion.div>
@@ -126,7 +128,7 @@ export default function LocationSection() {
 
                         <Button className="group mt-6" asChild>
                             <Link
-                                href="https://maps.google.com"
+                                href={venueInfo.mapUrl}
                                 target="_blank"
                                 className="flex items-center gap-2"
                             >
@@ -143,27 +145,20 @@ export default function LocationSection() {
                                 ? { opacity: 1, x: 0 }
                                 : { opacity: 0, x: 50 }
                         }
-                        transition={{ duration: 0.6, delay: 0.4 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="bg-primary/5 p-4 md:p-8 rounded-2xl border border-primary/20 aspect-square max-w-md mx-auto relative overflow-hidden"
                     >
-                        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-primary/10">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.1755169150883!2d10.545418075467596!3d36.38074487236963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd63eb6cbfcdcb%3A0x879a5c87a51db003!2sLe%20Royal%20Hotels%20and%20Resorts%20-%20Hammamet!5e0!3m2!1sen!2stn!4v1744906735507!5m2!1sen!2stn"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                className="absolute inset-0"
-                            />
-
-                            {/* Add decorative gradient overlay */}
-                            <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-primary/20 via-transparent to-transparent"></div>
-
-                            {/* Decorative elements */}
-                            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-xl" />
-                            <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl" />
-                        </div>
+                        <DecorativeLines />
+                        <iframe
+                            src={venueInfo.googleMapsEmbed}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen={false}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="rounded-lg"
+                        ></iframe>
                     </motion.div>
                 </div>
             </div>

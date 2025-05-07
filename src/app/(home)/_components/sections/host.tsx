@@ -103,7 +103,7 @@ export default function HostSection() {
                             <div className="relative h-full w-full flex items-center justify-center">
                                 <Image
                                     src="/images/logos/iip-esprit.png"
-                                    alt="IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapters"
+                                    alt="IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapter"
                                     fill
                                     className="object-contain p-4"
                                 />
@@ -132,7 +132,7 @@ export default function HostSection() {
                             }
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            IEEE ESPRIT Student Branch & Joint Chapters
+                            IEEE ESPRIT Student Branch & Joint Chapter
                         </motion.h3>
 
                         <motion.div
@@ -147,14 +147,14 @@ export default function HostSection() {
                         >
                             <p>
                                 IEEE ESPRIT Student Branch, along with its IAS,
-                                IES, and PES Joint Chapters, proudly hosts the
+                                IES, and PES Joint Chapter, proudly hosts the
                                 5th edition of the IEEE IAS Tunisia Annual
                                 Meeting (IASTAM).
                             </p>
                             <p>
                                 Established at ESPRIT Engineering School, the
-                                Student Branch and its Joint Chapters represent
-                                a dynamic community of engineering students
+                                Student Branch and its Joint Chapter represent a
+                                dynamic community of engineering students
                                 passionate about technological innovation and
                                 professional development in fields such as power
                                 systems, industrial automation, and renewable
@@ -229,11 +229,11 @@ export default function HostSection() {
                                 asChild
                             >
                                 <Link
-                                    href="https://www.linkedin.com/company/ieee-ias-ies-pes-esprit-sb-jc/"
+                                    href="https://www.linkedin.com/company/ias-ies-pes-esprit-student-branch-joint-chapter"
                                     target="_blank"
                                     className="flex items-center gap-2"
                                 >
-                                    Visit Joint Chapters{' '}
+                                    Visit Joint Chapter{' '}
                                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                                 </Link>
                             </Button>

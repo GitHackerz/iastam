@@ -6,49 +6,7 @@ import Image from 'next/image';
 import { Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-
-const speakers = [
-    {
-        name: 'Karim Akkari',
-        role: 'AI Engineer',
-        image: '/images/speakers/karim.jpg',
-        alt: 'Karim Akkari - AI Engineer and Keynote Speaker at IASTAM 5',
-        social: {
-            linkedin: 'https://linkedin.com/in/johndoe',
-            twitter: 'https://twitter.com/johndoe',
-        },
-    },
-    {
-        name: 'Mohamed El Hedi',
-        role: 'AI Engineer',
-        image: '/images/speakers/hedi.png',
-        alt: 'Mohamed El Hedi - AI Engineer and Keynote Speaker at IASTAM 5',
-        social: {
-            linkedin: 'https://linkedin.com/in/johndoe',
-            twitter: 'https://twitter.com/johndoe',
-        },
-    },
-    {
-        name: 'Hichem Fantar',
-        role: 'AI Engineer',
-        image: '/images/speakers/hichem.jpg',
-        alt: 'Hichem Fantar - AI Engineer and Keynote Speaker at IASTAM 5',
-        social: {
-            linkedin: 'https://linkedin.com/in/johndoe',
-            twitter: 'https://twitter.com/johndoe',
-        },
-    },
-    {
-        name: 'Mounir Frija',
-        role: 'AI Engineer',
-        image: '/images/speakers/mounir.png',
-        alt: 'Mounir Frija - AI Engineer and Keynote Speaker at IASTAM 5',
-        social: {
-            linkedin: 'https://linkedin.com/in/johndoe',
-            twitter: 'https://twitter.com/johndoe',
-        },
-    },
-];
+import { keynoteSpeakers } from '@/constants/speakers';
 
 export const KeynoteSpeakers = () => {
     const [sectionRef, inView] = useInView({
@@ -95,7 +53,7 @@ export const KeynoteSpeakers = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-                    {speakers.map((speaker, index) => (
+                    {keynoteSpeakers.map((speaker, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}

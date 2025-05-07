@@ -49,7 +49,7 @@ export default function RootLayout({
         image: ['https://ias-am.ieee.tn/images/logos/iastam.png'],
         performer: {
             '@type': 'Organization',
-            name: 'IEEE ESPRIT Student Branch & Joint Chapters',
+            name: 'IEEE ESPRIT Student Branch & Joint Chapter',
         },
     };
 

@@ -3,33 +3,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import { MapPin, Building, UsersRound, Wifi, Coffee } from 'lucide-react';
-
-const venueFeatures = [
-    {
-        icon: <Building className="h-5 w-5" />,
-        title: 'Luxury Facilities',
-        description:
-            'Elegant conference rooms with state-of-the-art equipment and services',
-    },
-    {
-        icon: <UsersRound className="h-5 w-5" />,
-        title: 'Capacity',
-        description:
-            'Main conference hall seats 600 with additional breakout spaces',
-    },
-    {
-        icon: <Wifi className="h-5 w-5" />,
-        title: 'Connectivity',
-        description: 'High-speed WiFi throughout the venue for all attendees',
-    },
-    {
-        icon: <Coffee className="h-5 w-5" />,
-        title: 'Amenities',
-        description:
-            'Luxury accommodations, dining, spa, and Mediterranean beachfront',
-    },
-];
+import { MapPin } from 'lucide-react';
+import { venueFeatures } from '@/constants/venue';
+import { hotelName, hotelAddress } from '@/constants/info';
 
 export const VenueSection = () => {
     const [sectionRef, inView] = useInView({
@@ -43,11 +19,6 @@ export const VenueSection = () => {
             ref={sectionRef}
             className="py-24 relative overflow-hidden"
         >
-            {/* <div className="absolute inset-0 overflow-hidden z-0">
-                <div className="absolute top-1/4 left-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-1/4 right-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
-            </div> */}
-
             <div className="container max-w-6xl px-4 mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -67,9 +38,9 @@ export const VenueSection = () => {
                         Conference <span className="text-primary">Venue</span>
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        IASTAM 5 will be held at the prestigious Hotel Royal in
-                        Hammamet, Tunisia, offering world-class facilities for
-                        all conference activities.
+                        IASTAM 5 will be held at the prestigious {hotelName} in{' '}
+                        {hotelAddress.city}, {hotelAddress.country}, offering
+                        world-class facilities for all conference activities.
                     </p>
                 </motion.div>
 
@@ -87,7 +58,7 @@ export const VenueSection = () => {
                         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
                             <Image
                                 src="/images/hotel.jpg"
-                                alt="Hotel Royal, Hammamet"
+                                alt={hotelName}
                                 fill
                                 className="object-cover"
                             />
@@ -104,13 +75,11 @@ export const VenueSection = () => {
                         transition={{ duration: 0.7 }}
                         className="space-y-4 md:space-y-6"
                     >
-                        <h3 className="text-2xl font-bold">
-                            Hotel Royal, Hammamet
-                        </h3>
+                        <h3 className="text-2xl font-bold">{hotelName}</h3>
 
                         <p className="text-muted-foreground">
                             Located on the stunning Mediterranean coast of
-                            Hammamet, Hotel Royal combines luxury amenities with
+                            Hammamet, {hotelName} combines luxury amenities with
                             sophisticated conference facilities. The venue
                             provides an inspiring and comfortable setting for
                             IASTAM&apos;s sessions, networking, and social
@@ -144,13 +113,13 @@ export const VenueSection = () => {
                         <div className="pt-4">
                             <h4 className="font-semibold mb-2">Address:</h4>
                             <p className="text-muted-foreground">
-                                Hotel Royal
+                                {hotelName}
                                 <br />
-                                9GHX+Q8H، Yasmine Hammamet B.P 237
+                                {hotelAddress.line1}
                                 <br />
-                                8050, Yasmine Hammamet
+                                {hotelAddress.postalCode}, {hotelAddress.city}
                                 <br />
-                                Tunisia
+                                {hotelAddress.country}
                             </p>
                         </div>
                     </motion.div>

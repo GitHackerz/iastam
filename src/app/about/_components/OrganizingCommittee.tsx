@@ -4,109 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone } from 'lucide-react';
-
-// Team member data structure
-interface TeamMember {
-    name: string;
-    position: string;
-    email: string;
-    phone?: string;
-    image: string;
-}
-
-// Organizing committee data
-const teamMembers: TeamMember[] = [
-    {
-        name: 'Yesmine Mejri',
-        position: 'Chair',
-        email: 'yesmine.mejri@ieee.org',
-        phone: '20907957',
-        image: '/images/board/yesmine.png',
-    },
-    {
-        name: 'Ons Nagara',
-        position: 'Vice Chair',
-        email: 'ons.nagara@ieee.org',
-        phone: '55616110',
-        image: '/images/board/ons.png',
-    },
-    {
-        name: 'Sabaa Melliti',
-        position: 'Secretary',
-        email: 'sabaamelliti@ieee.org',
-        phone: '99651990',
-        image: '/images/board/sabaa.png',
-    },
-    {
-        name: 'Seif Ouarag',
-        position: 'Treasurer',
-        email: 'ouarag@ieee.org',
-        phone: '23100782',
-        image: '/images/board/seif.png',
-    },
-    {
-        name: 'Aziz Hbaili',
-        position: 'Media Department Chair',
-        email: 'azizhbaili@ieee.org',
-        image: '/images/board/hbaili.png',
-    },
-    {
-        name: 'Mohamed Habib Allah Bibani',
-        position: 'Webmaster',
-        email: 'mohamedhabiballah.bibani@ieee.org',
-        phone: '58906040',
-        image: '/images/board/habib.png', // Using adam.png as a placeholder
-    },
-    {
-        name: 'Adem Fennani',
-        position: 'Ambassadors Coordinator',
-        email: 'adem.fennani@ieee.org',
-        phone: '29 218 948',
-        image: '/images/board/adam.png',
-    },
-    {
-        name: 'Nour Chargui',
-        position: 'Speakers Coordinator',
-        email: 'nour.chargui@ieee.org',
-        phone: '58401240',
-        image: '/images/board/nour.png',
-    },
-    {
-        name: 'Aziz Chalghaf',
-        position: 'Sponsoring Manager',
-        email: 'azizchalghaf@ieee.org',
-        phone: '27969216',
-        image: '/images/board/AZIZ.png', // Using the same AZIZ.png as a placeholder
-    },
-    {
-        name: 'Razi Sniha',
-        position: 'Logistics Manager',
-        email: 'razisniha@ieee.org',
-        phone: '26995933',
-        image: '/images/board/razi.png',
-    },
-    {
-        name: 'Rouba Souidi',
-        position: 'Program Manager',
-        email: 'rouba.souidi@ieee.org',
-        phone: '52888661',
-        image: '/images/board/rouba.png',
-    },
-    {
-        name: 'Youssef Kaabachi',
-        position: 'Communication Manager',
-        email: 'youssefkaabachi@ieee.org',
-        phone: '24584137',
-        image: '/images/board/youssef.png',
-    },
-    {
-        name: 'Fedi Hmida',
-        position: 'HR',
-        email: 'fedi.hmida@ieee.org',
-        phone: '93722130',
-        image: '/images/board/fedi.png',
-    },
-];
+import { teamMembers } from '@/constants/team';
 
 export const OrganizingCommittee = () => {
     const [ref, inView] = useInView({
@@ -160,7 +58,7 @@ export const OrganizingCommittee = () => {
                     </p>
                 </motion.div>
 
-                {/* Team Members Grid - Updated with integrated design */}
+                {/* Team Members Grid - Updated with lighter design */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                     {teamMembers.map((member, index) => (
                         <motion.div
@@ -183,11 +81,11 @@ export const OrganizingCommittee = () => {
                             }}
                             className="group"
                         >
-                            <div className="relative rounded-xl overflow-hidden border border-border shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 h-full">
+                            <div className="relative rounded-xl overflow-hidden border border-border shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 h-full bg-card/80">
                                 {/* Decorative elements */}
                                 <div className="absolute top-0 right-0 w-24 h-24 -mr-12 -mt-12 bg-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-                                {/* Member Card - Integrated design */}
+                                {/* Member Card - Lightened design */}
                                 <div className="relative aspect-[3/4] w-full overflow-hidden">
                                     <motion.div
                                         whileHover={{ scale: 1.08 }}
@@ -205,8 +103,8 @@ export const OrganizingCommittee = () => {
                                         />
                                     </motion.div>
 
-                                    {/* Overlay with stronger gradient for text readability */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent group-hover:opacity-90 transition-opacity duration-300" />
+                                    {/* Lighter overlay with subtle gradient for better visibility */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:opacity-70 transition-opacity duration-300" />
 
                                     {/* Position Badge with gleaming animation */}
                                     <motion.div
@@ -225,17 +123,20 @@ export const OrganizingCommittee = () => {
                                         {member.position}
                                     </motion.div>
 
-                                    {/* Integrated Content - Name and Contact Info - Reduced spacing */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 pb-5 text-white space-y-2 backdrop-blur-sm bg-gradient-to-t from-black/80 to-transparent">
+                                    {/* Colorful Content Area with enhanced design */}
+                                    <div className="absolute bottom-0 left-0 right-0 p-4 pb-5 text-white space-y-2">
+                                        {/* Colorful background with gradient and glass effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/70 to-primary/20 backdrop-blur-md -z-10" />
+
                                         <motion.h3
-                                            className="text-base md:text-lg font-bold group-hover:text-primary-foreground transition-colors duration-300"
+                                            className="text-base md:text-lg font-bold text-white group-hover:text-white/90 transition-colors duration-300 drop-shadow-sm"
                                             initial={{ y: 0 }}
                                             whileHover={{ y: -2 }}
                                         >
                                             {member.name}
                                         </motion.h3>
 
-                                        {/* Contact Information with interactive elements - Reduced spacing */}
+                                        {/* Contact Information with improved visibility and colorful accents */}
                                         <div className="space-y-1.5">
                                             <motion.div
                                                 className="flex items-center gap-2 group/email"
@@ -245,7 +146,7 @@ export const OrganizingCommittee = () => {
                                                     stiffness: 300,
                                                 }}
                                             >
-                                                <div className="p-1 rounded-full bg-primary/20 text-white flex-shrink-0 group-hover/email:bg-primary/40 transition-colors duration-300">
+                                                <div className="p-1 rounded-full bg-white/30 text-white flex-shrink-0 group-hover/email:bg-white/50 transition-colors duration-300 shadow-sm">
                                                     <Mail className="w-3 h-3" />
                                                 </div>
                                                 <a
@@ -265,7 +166,7 @@ export const OrganizingCommittee = () => {
                                                         stiffness: 300,
                                                     }}
                                                 >
-                                                    <div className="p-1 rounded-full bg-primary/20 text-white flex-shrink-0 group-hover/phone:bg-primary/40 transition-colors duration-300">
+                                                    <div className="p-1 rounded-full bg-white/30 text-white flex-shrink-0 group-hover/phone:bg-white/50 transition-colors duration-300 shadow-sm">
                                                         <Phone className="w-3 h-3" />
                                                     </div>
                                                     <a

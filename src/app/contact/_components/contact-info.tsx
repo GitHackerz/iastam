@@ -1,6 +1,13 @@
 'use client';
 
 import { MapPin, Mail, Phone, Calendar } from 'lucide-react';
+import {
+    hotelName,
+    hotelAddress,
+    eventDate,
+    chairEmail,
+    chairPhone,
+} from '@/constants/info';
 
 export const ContactInfo = () => {
     return (
@@ -12,13 +19,13 @@ export const ContactInfo = () => {
                 <div>
                     <h4 className="font-medium mb-1">Venue Address</h4>
                     <p className="text-muted-foreground">
-                        Hotel Royal
+                        {hotelName}
                         <br />
-                        9GHX+Q8H، Yasmine Hammamet B.P 237
+                        {hotelAddress.line1}
                         <br />
-                        8050, Yasmine Hammamet
+                        {hotelAddress.postalCode}, {hotelAddress.city}
                         <br />
-                        Tunisia
+                        {hotelAddress.country}
                     </p>
                 </div>
             </div>
@@ -29,7 +36,7 @@ export const ContactInfo = () => {
                 </div>
                 <div>
                     <h4 className="font-medium mb-1">Event Dates</h4>
-                    <p className="text-muted-foreground">October 4-6, 2025</p>
+                    <p className="text-muted-foreground">{eventDate}</p>
                 </div>
             </div>
 
@@ -39,9 +46,7 @@ export const ContactInfo = () => {
                 </div>
                 <div>
                     <h4 className="font-medium mb-1">Email</h4>
-                    <p className="text-muted-foreground">
-                        landolsi.selim@ieee.org
-                    </p>
+                    <p className="text-muted-foreground">{chairEmail}</p>
                 </div>
             </div>
 
@@ -51,7 +56,7 @@ export const ContactInfo = () => {
                 </div>
                 <div>
                     <h4 className="font-medium mb-1">Phone</h4>
-                    <p className="text-muted-foreground">+216 55 176 296</p>
+                    <p className="text-muted-foreground">{chairPhone}</p>
                 </div>
             </div>
         </div>

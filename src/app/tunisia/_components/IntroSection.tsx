@@ -15,12 +15,12 @@ export const IntroSection = () => {
     // Add state for image slider
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [
-        '/images/tunisia/1.jpg',
-        '/images/tunisia/2.png',
-        '/images/tunisia/3.jpg',
-        '/images/tunisia/4.jpeg',
-        '/images/tunisia/5.jpg',
-        '/images/tunisia/6.avif',
+        '/images/tunisia/1.webp',
+        '/images/tunisia/2.webp',
+        '/images/tunisia/3.webp',
+        '/images/tunisia/4.webp',
+        '/images/tunisia/5.webp',
+        '/images/tunisia/6.webp',
     ];
 
     // Set up automatic image rotation

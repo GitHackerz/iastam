@@ -23,7 +23,7 @@ export const organizationsData = [
                 <p>
                     The IEEE IAS Tunisia Annual Meeting (IASTAM) is the flagship
                     event organized by the IEEE IAS & IES & PES ESPRIT Student
-                    Branch Joint Chapters in collaboration with the IAS Tunisia
+                    Branch Joint Chapter in collaboration with the IAS Tunisia
                     Section and IEEE ESPRIT Student Branch. This prestigious
                     gathering brings together industry professionals, academics,
                     researchers, and students from across Tunisia and beyond.
@@ -159,14 +159,14 @@ export const organizationsData = [
         website: 'http://esprit.ieee.tn/',
     },
     {
-        title: 'IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapters',
+        title: 'IEEE IAS & IES & PES ESPRIT Student Branch Joint Chapter',
         logo: '/images/logos/iip-esprit.png',
         description: (
             <>
                 <p>
                     The IEEE IAS (Industry Applications Society), IES
                     (Industrial Electronics Society), and PES (Power & Energy
-                    Society) Joint Chapters at ESPRIT Student Branch represent a
+                    Society) Joint Chapter at ESPRIT Student Branch represent a
                     collaborative effort to address interdisciplinary challenges
                     in industrial applications, electronics, and power systems.
                 </p>
