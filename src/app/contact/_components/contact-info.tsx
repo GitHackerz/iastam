@@ -1,13 +1,7 @@
 'use client';
 
 import { MapPin, Mail, Phone, Calendar } from 'lucide-react';
-import {
-    hotelName,
-    hotelAddress,
-    eventDate,
-    chairEmail,
-    chairPhone,
-} from '@/constants/info';
+import { chairEmail, chairPhone } from '@/constants/info';
 
 export const ContactInfo = () => {
     return (
@@ -18,15 +12,7 @@ export const ContactInfo = () => {
                 </div>
                 <div>
                     <h4 className="font-medium mb-1">Venue Address</h4>
-                    <p className="text-muted-foreground">
-                        {hotelName}
-                        <br />
-                        {hotelAddress.line1}
-                        <br />
-                        {hotelAddress.postalCode}, {hotelAddress.city}
-                        <br />
-                        {hotelAddress.country}
-                    </p>
+                    <p className="text-muted-foreground">To be announced</p>
                 </div>
             </div>
 
@@ -35,8 +21,8 @@ export const ContactInfo = () => {
                     <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                    <h4 className="font-medium mb-1">Event Dates</h4>
-                    <p className="text-muted-foreground">{eventDate}</p>
+                    <h4 className="font-medium mb-1">Event Date</h4>
+                    <p className="text-muted-foreground">Coming Soon</p>
                 </div>
             </div>
 
