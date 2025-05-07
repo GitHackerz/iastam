@@ -5,8 +5,6 @@ import Image from 'next/image';
 import { navLinks } from '@/constants/navigation';
 import {
     eventName,
-    eventShortName,
-    eventYear,
     chairEmail,
     chairPhone,
     organizerInfo,
@@ -38,9 +36,7 @@ export default function Footer() {
                                 height={60}
                                 className="h-auto"
                             />
-                            <h3 className="text-xl font-semibold text-slate-900">
-                                {eventShortName} {eventYear}
-                            </h3>
+
                             <p className="text-slate-600 text-sm max-w-xs">
                                 The annual gathering bringing together industry
                                 professionals, academics, and students to
