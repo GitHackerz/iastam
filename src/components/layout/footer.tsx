@@ -3,12 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { navLinks } from '@/constants/navigation';
-import {
-    eventName,
-    chairEmail,
-    chairPhone,
-    organizerInfo,
-} from '@/constants/info';
+import { eventName, chairEmail, chairPhone } from '@/constants/info';
 import {
     Mail,
     Phone,
@@ -135,22 +130,44 @@ export default function Footer() {
                         <div className="text-slate-600 text-sm space-y-2">
                             <p>
                                 <Link
-                                    href={
-                                        organizerInfo.organizerWebsites
-                                            .jointChapters
-                                    }
+                                    href="http://ieee.tn/"
                                     target="_blank"
                                     className="hover:text-primary transition-colors flex items-center gap-1"
                                 >
-                                    {organizerInfo.mainOrganizer}
+                                    IEEE Tunisia Section
                                     <ArrowUpRight className="w-3 h-3" />
                                 </Link>
                             </p>
-                            {organizerInfo.coOrganizers.map(
-                                (organizer, idx) => (
-                                    <p key={idx}>{organizer}</p>
-                                ),
-                            )}
+                            <p>
+                                <Link
+                                    href="https://ias.ieee.tn"
+                                    target="_blank"
+                                    className="hover:text-primary transition-colors flex items-center gap-1"
+                                >
+                                    IEEE IAS Tunisia Section
+                                    <ArrowUpRight className="w-3 h-3" />
+                                </Link>
+                            </p>
+                            <p>
+                                <Link
+                                    href="https://esprit.ieee.tn/"
+                                    target="_blank"
+                                    className="hover:text-primary transition-colors flex items-center gap-1"
+                                >
+                                    IEEE ESPRIT Student Branch
+                                    <ArrowUpRight className="w-3 h-3" />
+                                </Link>
+                            </p>
+                            <p>
+                                <Link
+                                    href="https://ias-ies-pes-esprit.ieee.tn/"
+                                    target="_blank"
+                                    className="hover:text-primary transition-colors flex items-center gap-1"
+                                >
+                                    IEEE IAS, IES & PES Joint Chapter
+                                    <ArrowUpRight className="w-3 h-3" />
+                                </Link>
+                            </p>
                         </div>
                     </div>
                 </div>

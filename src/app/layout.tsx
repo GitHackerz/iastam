@@ -46,7 +46,7 @@ export default function RootLayout({
             url: 'https://ias-am.ieee.tn/register',
             availability: 'https://schema.org/InStock',
         },
-        image: ['https://ias-am.ieee.tn/images/logos/iastam.png'],
+        image: ['./images/logos/iastam.png'],
         performer: {
             '@type': 'Organization',
             name: 'IEEE ESPRIT Student Branch & Joint Chapter',
@@ -60,10 +60,10 @@ export default function RootLayout({
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-                <link rel="icon" href="/favicon.ico" sizes="any" />
+                <link rel="icon" href="./favicon.ico" sizes="any" />
                 <link
                     rel="apple-touch-icon"
-                    href="/apple-touch-icon.png"
+                    href="./apple-touch-icon.png"
                     type="image/png"
                     sizes="180x180"
                 />

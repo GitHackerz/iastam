@@ -92,7 +92,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: 'Fedi Hmida',
-        position: 'HR',
+        position: 'HR Manager',
         email: 'fedi.hmida@ieee.org',
         phone: '93722130',
         image: '/images/board/fedi.png',
