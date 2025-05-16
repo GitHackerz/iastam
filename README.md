@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Deployment
+
+This project is configured with GitHub Actions to automatically deploy to an FTP server when changes are pushed to the main branch. See [FTP Deployment Documentation](./docs/ftp-deploy.md) for details on setting up the required GitHub secrets and customizing the deployment process.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
