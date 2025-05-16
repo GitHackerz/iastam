@@ -17,13 +17,6 @@ export default function HostSection() {
 
     const organizers = [
         {
-            name: 'IEEE Tunisia Section',
-            logo: '/images/logos/ieee-tun.png',
-            description:
-                'IEEE Tunisia Section oversees all IEEE activities within Tunisia, supporting various chapters, student branches, and technical communities to advance technology and innovation across the country.',
-            website: 'http://ieee.tn/',
-        },
-        {
             name: 'IEEE IAS Tunisia Section',
             logo: '/images/logos/ias-tun.png',
             description:
@@ -87,11 +80,11 @@ export default function HostSection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     {organizers.map((org, index) => (
                         <motion.div
                             key={org.name}
-                            className="bg-card/30 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-lg hover:shadow-primary/5 transition-all h-full flex flex-col"
+                            className="bg-card/30 backdrop-blur-sm rounded-xl p-7 border border-primary/10 shadow-lg hover:shadow-primary/10 hover:border-primary/20 transition-all h-full flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
                             animate={
                                 inView
@@ -102,10 +95,14 @@ export default function HostSection() {
                                 duration: 0.7,
                                 delay: 0.2 + index * 0.1,
                             }}
+                            whileHover={{
+                                y: -5,
+                                transition: { duration: 0.3 },
+                            }}
                         >
                             <div className="flex flex-col gap-6 h-full">
                                 {/* Organization Logo */}
-                                <div className="relative h-36 w-full">
+                                <div className="relative h-40 w-full mx-auto mb-2">
                                     <Image
                                         src={org.logo}
                                         alt={org.name}
@@ -116,7 +113,7 @@ export default function HostSection() {
 
                                 {/* Organization Info */}
                                 <div className="space-y-4 flex-grow">
-                                    <h3 className="text-xl font-semibold text-primary">
+                                    <h3 className="text-xl font-semibold text-primary text-center">
                                         {org.name}
                                     </h3>
                                     <p className="text-muted-foreground text-sm">
@@ -128,7 +125,7 @@ export default function HostSection() {
                                 <div>
                                     <Button
                                         variant="outline"
-                                        className="group border-primary/20 hover:border-primary w-full"
+                                        className="group border-primary/20 hover:border-primary w-full hover:bg-primary/5"
                                         asChild
                                     >
                                         <Link
