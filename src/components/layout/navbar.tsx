@@ -62,7 +62,7 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link href="/" className="font-bold text-xl">
                             <Image
-                                src="./images/logos/iastam.png"
+                                src="/images/logos/iastam.png"
                                 alt="Logo"
                                 width={120}
                                 height={30}
