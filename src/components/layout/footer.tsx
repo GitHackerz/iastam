@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { navLinks } from '@/constants/navigation';
-import { eventName, chairEmail, chairPhone } from '@/constants/info';
+import { eventInfo } from '@/constants/event';
 import {
     Mail,
     Phone,
@@ -26,7 +26,7 @@ export default function Footer() {
                         <div className="flex flex-col items-start gap-3">
                             <Image
                                 src="/images/logos/iastam.png"
-                                alt={eventName}
+                                alt={eventInfo.name}
                                 width={160}
                                 height={60}
                                 className="h-auto"
@@ -68,19 +68,19 @@ export default function Footer() {
                             <p className="flex items-center gap-2 text-slate-600">
                                 <Mail className="w-4 h-4" />
                                 <a
-                                    href={`mailto:${chairEmail}`}
+                                    href={`mailto:${eventInfo.contact.chair.email}`}
                                     className="hover:text-primary transition-colors"
                                 >
-                                    {chairEmail}
+                                    {eventInfo.contact.chair.email}
                                 </a>
                             </p>
                             <p className="flex items-center gap-2 text-slate-600">
                                 <Phone className="w-4 h-4" />
                                 <a
-                                    href={`tel:${chairPhone.replace(/\s/g, '')}`}
+                                    href={`tel:${eventInfo.contact.chair.phone.replace(/\s/g, '')}`}
                                     className="hover:text-primary transition-colors"
                                 >
-                                    {chairPhone}
+                                    {eventInfo.contact.chair.phone}
                                 </a>
                             </p>
                         </div>
@@ -175,7 +175,8 @@ export default function Footer() {
                 {/* Bottom Copyright Section */}
                 <div className="pt-6 border-t border-slate-200 text-center">
                     <p className="text-sm text-slate-600">
-                        &copy; {currentYear} {eventName}. All rights reserved.
+                        &copy; {currentYear} {eventInfo.name}. All rights
+                        reserved.
                     </p>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { MapPin, Mail, Phone, Calendar } from 'lucide-react';
-import { chairEmail, chairPhone } from '@/constants/info';
+import { eventInfo } from '@/constants/event';
 
 export const ContactInfo = () => {
     return (
@@ -11,8 +11,10 @@ export const ContactInfo = () => {
                     <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                    <h4 className="font-medium mb-1">Venue Address</h4>
-                    <p className="text-muted-foreground">To be announced</p>
+                    <h3 className="font-semibold">Location</h3>
+                    <p className="text-muted-foreground mt-1">
+                        {eventInfo.venue.address}
+                    </p>
                 </div>
             </div>
 
@@ -21,8 +23,13 @@ export const ContactInfo = () => {
                     <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                    <h4 className="font-medium mb-1">Event Date</h4>
-                    <p className="text-muted-foreground">Coming Soon</p>
+                    <h3 className="font-semibold">Date & Time</h3>
+                    <p className="text-muted-foreground mt-1">
+                        {eventInfo.date}
+                        <br />
+                        {eventInfo.schedule.dailyStart} -{' '}
+                        {eventInfo.schedule.dailyEnd}
+                    </p>
                 </div>
             </div>
 
@@ -31,8 +38,10 @@ export const ContactInfo = () => {
                     <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                    <h4 className="font-medium mb-1">Email</h4>
-                    <p className="text-muted-foreground">{chairEmail}</p>
+                    <h3 className="font-semibold">Email</h3>
+                    <p className="text-muted-foreground mt-1">
+                        {eventInfo.contact.chair.email}
+                    </p>
                 </div>
             </div>
 
@@ -41,8 +50,10 @@ export const ContactInfo = () => {
                     <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                    <h4 className="font-medium mb-1">Phone</h4>
-                    <p className="text-muted-foreground">{chairPhone}</p>
+                    <h3 className="font-semibold">Phone</h3>
+                    <p className="text-muted-foreground mt-1">
+                        {eventInfo.contact.chair.phone}
+                    </p>
                 </div>
             </div>
         </div>

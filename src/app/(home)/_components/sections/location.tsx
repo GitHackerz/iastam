@@ -6,12 +6,7 @@ import { MapPin, Phone, Mail, MapIcon } from 'lucide-react';
 import DecorativeLines from '@/components/ui/decorative-lines';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import {
-    hotelName,
-    hotelAddress,
-    chairEmail,
-    chairPhone,
-} from '@/constants/info';
+import { eventInfo } from '@/constants/event';
 import { venueInfo } from '@/constants/venue';
 
 export default function LocationSection() {
@@ -70,7 +65,7 @@ export default function LocationSection() {
                         className="space-y-8"
                     >
                         <h3 className="text-2xl font-semibold text-primary">
-                            {hotelName}
+                            {eventInfo.venue.name}
                         </h3>
 
                         <div className="space-y-5">
@@ -86,11 +81,7 @@ export default function LocationSection() {
                                         Address
                                     </h4>
                                     <p className="text-muted-foreground">
-                                        {hotelAddress.line1}
-                                        <br />
-                                        {hotelAddress.postalCode},{' '}
-                                        {hotelAddress.city},{' '}
-                                        {hotelAddress.country}
+                                        {eventInfo.venue.address}
                                     </p>
                                 </div>
                             </motion.div>
@@ -105,7 +96,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Phone</h4>
                                     <p className="text-muted-foreground">
-                                        {chairPhone}
+                                        {eventInfo.contact.chair.phone}
                                     </p>
                                 </div>
                             </motion.div>
@@ -120,7 +111,7 @@ export default function LocationSection() {
                                 <div>
                                     <h4 className="font-medium mb-1">Email</h4>
                                     <p className="text-muted-foreground">
-                                        {chairEmail}
+                                        {eventInfo.contact.chair.email}
                                     </p>
                                 </div>
                             </motion.div>

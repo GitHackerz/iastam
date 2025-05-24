@@ -10,15 +10,15 @@ export interface VenueFeature {
 export const venueFeatures: VenueFeature[] = [
     {
         icon: <Building className="h-5 w-5" />,
-        title: 'Luxury Facilities',
+        title: 'Modern Facilities',
         description:
-            'Elegant conference rooms with state-of-the-art equipment and services',
+            'Conference venue will be equipped with state-of-the-art facilities',
     },
     {
         icon: <UsersRound className="h-5 w-5" />,
         title: 'Capacity',
         description:
-            'Main conference hall seats 600 with additional breakout spaces',
+            'Venue will accommodate all attendees comfortably with dedicated spaces for sessions',
     },
     {
         icon: <Wifi className="h-5 w-5" />,
@@ -35,8 +35,7 @@ export const venueFeatures: VenueFeature[] = [
 
 export const venueInfo = {
     description:
-        "Located on the stunning Mediterranean coast of Hammamet, Hotel Royal combines luxury amenities with sophisticated conference facilities. The venue provides an inspiring and comfortable setting for IASTAM's sessions, networking, and social events.",
-    mapUrl: 'https://maps.google.com',
-    googleMapsEmbed:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.1755169150883!2d10.545418075467596!3d36.38074487236963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd63eb6cbfcdcb%3A0x879a5c87a51db003!2sLe%20Royal%20Hotels%20and%20Resorts%20-%20Hammamet!5e0!3m2!1sen!2stn!4v1744906735507!5m2!1sen!2stn',
+        'The venue for IASTAM 5 will be announced soon. We are committed to providing a location that combines modern conference facilities with comfortable amenities for all attendees.',
+    mapUrl: '',
+    googleMapsEmbed: '',
 };

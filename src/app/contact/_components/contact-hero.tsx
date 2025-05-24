@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ChevronDown } from 'lucide-react';
+import { eventInfo } from '@/constants/event';
 
 export const ContactHero = () => {
     const [heroRef, heroInView] = useInView({
@@ -29,31 +30,21 @@ export const ContactHero = () => {
 
             <div className="container max-w-7xl mx-auto px-4 text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={
                         heroInView
                             ? { opacity: 1, y: 0 }
-                            : { opacity: 0, y: 30 }
+                            : { opacity: 0, y: 20 }
                     }
-                    transition={{ duration: 0.7 }}
-                    className="space-y-8 max-w-3xl mx-auto"
+                    transition={{ duration: 0.6 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        <span className="text-primary font-medium tracking-wider uppercase text-sm">
-                            Contact Us
-                        </span>
-                    </div>
-
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                        We&apos;d Love to Hear{' '}
-                        <span className="text-primary">From You</span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                        Get in Touch
                     </h1>
-
-                    <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                        Whether you have questions about IASTAM, are interested
-                        in participating, or want to explore collaboration
-                        opportunities, our team is here to help.
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        Have questions about {eventInfo.shortName}? We&apos;re
+                        here to help! Reach out to us using any of the methods
+                        below.
                     </p>
                 </motion.div>
 

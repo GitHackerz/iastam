@@ -3,12 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, Clock, MapPin } from 'lucide-react';
-import {
-    hotelName,
-    hotelAddress,
-    eventDate,
-    dailySchedule,
-} from '@/constants/info';
+import { eventInfo } from '@/constants/event';
 
 export const ProgramsHero = () => {
     const [heroRef, heroInView] = useInView({
@@ -58,26 +53,27 @@ export const ProgramsHero = () => {
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                         Join us for three days of inspiring keynotes, technical
                         sessions, workshops, and networking opportunities at{' '}
-                        {hotelName}, {hotelAddress.city}.
+                        {eventInfo.venue.name}, {eventInfo.venue.city}.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
                         <div className="flex items-center gap-2">
                             <Calendar className="h-5 w-5 text-primary" />
-                            <span>{eventDate}</span>
+                            <span>{eventInfo.date}</span>
                         </div>
                         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-primary" />
                         <div className="flex items-center gap-2">
                             <MapPin className="h-5 w-5 text-primary" />
                             <span>
-                                {hotelName}, {hotelAddress.city}
+                                {eventInfo.venue.name}, {eventInfo.venue.city}
                             </span>
                         </div>
                         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-primary" />
                         <div className="flex items-center gap-2">
                             <Clock className="h-5 w-5 text-primary" />
                             <span>
-                                {dailySchedule.start} - {dailySchedule.end}
+                                {eventInfo.schedule.dailyStart} -{' '}
+                                {eventInfo.schedule.dailyEnd}
                             </span>
                         </div>
                     </div>

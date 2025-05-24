@@ -21,18 +21,16 @@ export default function RootLayout({
         name: 'IEEE IAS Tunisia Annual Meeting (IASTAM 5)',
         description:
             'The 5th IEEE IAS Tunisia Annual Meeting featuring keynote speeches, technical sessions, workshops, and networking opportunities in industrial applications technology.',
-        startDate: '2025-10-04T09:00',
-        endDate: '2025-10-06T17:30',
+        startDate: '2025-01-01T00:00',
+        endDate: '2025-12-31T23:59',
         eventStatus: 'https://schema.org/EventScheduled',
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         location: {
             '@type': 'Place',
-            name: 'Hotel Royal',
+            name: 'To be announced',
             address: {
                 '@type': 'PostalAddress',
-                streetAddress: '9GHX+Q8H، Yasmine Hammamet B.P 237',
-                addressLocality: 'Yasmine Hammamet',
-                postalCode: '8050',
+                addressLocality: 'To be announced',
                 addressCountry: 'TN',
             },
         },

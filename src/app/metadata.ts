@@ -1,10 +1,10 @@
 export const defaultMetadata = {
     title: {
-        default: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting 2025',
+        default: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting',
         template: '%s | IASTAM 5',
     },
     description:
-        'IEEE IAS Tunisia Annual Meeting (IASTAM 5) - October 4-6, 2025 at Hotel Royal, Hammamet. Join industry professionals, academics, and researchers in industrial applications technology.',
+        'IEEE IAS Tunisia Annual Meeting (IASTAM 5) - Join industry professionals, academics, and researchers in industrial applications technology.',
     keywords: [
         'IEEE',
         'IAS',
@@ -15,7 +15,6 @@ export const defaultMetadata = {
         'Conference',
         'Engineering',
         'Technology',
-        'Hammamet',
         'Tunisia',
     ],
     authors: [{ name: 'IEEE IAS Tunisia' }],
@@ -25,7 +24,7 @@ export const defaultMetadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://ias-am.ieee.tn',
-        title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting 2025',
+        title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting',
         description:
             'Join us for the 5th IEEE IAS Tunisia Annual Meeting (IASTAM) - A premier conference on industrial applications technology featuring keynotes, technical sessions, and workshops.',
         siteName: 'IASTAM 5',
@@ -40,9 +39,9 @@ export const defaultMetadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting 2025',
+        title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting',
         description:
-            'Join us for the 5th IEEE IAS Tunisia Annual Meeting (IASTAM) - October 4-6, 2025 at Hotel Royal, Hammamet.',
+            'Join us for the 5th IEEE IAS Tunisia Annual Meeting (IASTAM) - A premier conference on industrial applications technology.',
         images: ['/images/logos/iastam.png'],
         creator: '@IEEEIASTunisia',
     },

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { MapPin } from 'lucide-react';
-import { hotelName, hotelAddress } from '@/constants/info';
+import { eventInfo } from '@/constants/event';
 import { venueInfo } from '@/constants/venue';
 
 export const ContactMap = () => {
@@ -36,9 +36,8 @@ export const ContactMap = () => {
                         Find Us
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        IASTAM 5 will be held at the {hotelName}, a luxury
-                        resort located in the beautiful coastal city of{' '}
-                        {hotelAddress.city}, {hotelAddress.country}.
+                        IASTAM 5 will be held at {eventInfo.venue.name}, located
+                        in {eventInfo.venue.address},
                     </p>
                 </motion.div>
 
