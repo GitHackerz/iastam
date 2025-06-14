@@ -31,6 +31,6 @@ export const faqs: FaqItem[] = [
     {
         question:
             'Are there opportunities for companies to sponsor or exhibit?',
-        answer: 'Yes, we offer various sponsorship and exhibition opportunities. Please contact us at yesmine.mejri@ieee.org for detailed information about available packages.',
+        answer: 'Yes, we offer various sponsorship and exhibition opportunities. Please contact us at ias-am@ieee.tn for detailed information about available packages.',
     },
 ];

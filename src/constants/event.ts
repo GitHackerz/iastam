@@ -8,7 +8,7 @@ export const eventInfo = {
         title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting 2025',
         description:
             'Join us for the 5th IEEE IAS Tunisia Annual Meeting (IASTAM) - A premier conference on industrial applications technology featuring keynotes, technical sessions, and workshops.',
-        siteUrl: 'https://iastam.ieee.tn',
+        siteUrl: 'https://ias-am.ieee.tn',
     },
     venue: {
         name: 'To be announced',
@@ -22,7 +22,7 @@ export const eventInfo = {
     },
     contact: {
         chair: {
-            email: 'yesmine.mejri@ieee.org',
+            email: 'ias-am@ieee.tn',
             phone: '+216 20 907 957',
         },
     },
