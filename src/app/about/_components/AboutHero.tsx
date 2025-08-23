@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export const AboutHero = () => {
     const [headerRef, headerInView] = useInView({
@@ -11,20 +13,71 @@ export const AboutHero = () => {
         threshold: 0.2,
     });
 
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Get the appropriate logo based on theme
+    const getLogoSrc = () => {
+        if (!mounted) return '/images/logos/iastam.png'; // Default fallback
+        const isDark = resolvedTheme === 'dark';
+        return isDark
+            ? '/images/logos/iastam-w.png'
+            : '/images/logos/iastam.png';
+    };
+
     return (
         <section
             ref={headerRef}
-            className="relative min-h-screen flex items-center overflow-hidden border-b border-border/50"
+            className="relative min-h-screen flex items-center overflow-hidden border-b border-border/20 bg-gradient-to-br from-background via-background to-primary/5"
         >
-            {/* Background patterns */}
-            <div className="absolute inset-0 bg-grid-small-black/[0.2] -z-10 dark:bg-grid-small-white/[0.2]" />
+            {/* Enhanced Background patterns */}
+            <div className="absolute inset-0 bg-dots dark:bg-dots opacity-20 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -z-10" />
 
-            {/* Abstract shapes */}
+            {/* Enhanced abstract shapes with animation */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-20 right-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
-                <div
-                    className="absolute bottom-20 left-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-                    style={{ animationDelay: '1s' }}
+                <motion.div
+                    className="absolute top-20 right-12 w-96 h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full filter blur-3xl"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-20 left-12 w-96 h-96 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-full filter blur-3xl"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.2, 0.5, 0.2],
+                    }}
+                    transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1,
+                    }}
+                />
+                {/* Additional floating orbs */}
+                <motion.div
+                    className="absolute top-1/2 right-1/4 w-48 h-48 bg-primary/10 rounded-full filter blur-2xl"
+                    animate={{
+                        y: [0, -30, 0],
+                        x: [0, 20, 0],
+                    }}
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2,
+                    }}
                 />
             </div>
 
@@ -42,21 +95,45 @@ export const AboutHero = () => {
                         className="order-2 lg:order-1"
                     >
                         <div className="space-y-8">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-                                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            <motion.div
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20"
+                                animate={{
+                                    scale: [1, 1.02, 1],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}
+                            >
+                                <motion.span
+                                    className="w-2 h-2 rounded-full bg-primary"
+                                    animate={{
+                                        scale: [1, 1.3, 1],
+                                        opacity: [0.5, 1, 0.5],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}
+                                />
                                 <span className="text-primary font-medium tracking-wider uppercase text-sm">
                                     About us
                                 </span>
-                            </div>
+                            </motion.div>
 
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                                Powering{' '}
-                                <span className="text-primary">Innovation</span>{' '}
-                                Through Collaboration
+                                <span className="text-foreground">About</span>{' '}
+                                <span className="bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
+                                    IAS Technical Annual Meeting 2025
+                                </span>
                             </h1>
 
                             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-                                <span className="font-semibold">IASTAM 5</span>{' '}
+                                <span className="font-semibold text-primary">
+                                    IASTAM 5
+                                </span>{' '}
                                 is the premier annual event for industrial
                                 applications technology in Tunisia, set to take
                                 place in 2025. Focusing on power systems,
@@ -66,32 +143,44 @@ export const AboutHero = () => {
                                 innovation.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                                        <span className="text-primary font-bold">
+                            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+                                <motion.div
+                                    className="flex items-center gap-3 text-sm text-muted-foreground"
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/20">
+                                        <span className="text-primary font-bold text-lg">
                                             7+
                                         </span>
                                     </div>
-                                    <span>
+                                    <span className="font-medium">
                                         Organizations
                                         <br />
-                                        Working Together
+                                        <span className="text-xs opacity-70">
+                                            Working Together
+                                        </span>
                                     </span>
-                                </div>
+                                </motion.div>
 
-                                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                                        <span className="text-primary font-bold">
+                                <motion.div
+                                    className="flex items-center gap-3 text-sm text-muted-foreground"
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/20">
+                                        <span className="text-accent font-bold text-lg">
                                             5th
                                         </span>
                                     </div>
-                                    <span>
+                                    <span className="font-medium">
                                         Edition of
                                         <br />
-                                        IASTAM
+                                        <span className="text-xs opacity-70">
+                                            IASTAM
+                                        </span>
                                     </span>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>
@@ -109,12 +198,14 @@ export const AboutHero = () => {
                     >
                         <div className="relative h-60 sm:h-80 md:h-96 lg:h-[450px] w-full md:mt-0 mt-20">
                             <Image
-                                src="/images/logos/iastam.png"
+                                src={getLogoSrc()}
                                 alt="IASTAM"
                                 fill
-                                className="object-contain p-2 sm:p-4"
+                                className="object-contain p-2 sm:p-4 transition-transform duration-300 hover:scale-105"
                                 priority
                             />
+                            {/* Decorative elements around the image */}
+                            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 rounded-full blur-2xl opacity-50" />
                         </div>
                     </motion.div>
                 </div>

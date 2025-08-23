@@ -37,16 +37,22 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: 'Aziz Hbaili',
-        position: 'Media Department Chair',
+        position: 'Media Team Lead',
         email: 'azizhbaili@ieee.org',
         image: '/images/board/hbaili.png',
     },
     {
+        name: 'Amina Bayoudh',
+        position: 'Media Team CoLead',
+        email: 'amina.bayoudh@ieee.org',
+        image: '/images/board/amina.png',
+    },
+    {
         name: 'Mohamed Habib Allah Bibani',
-        position: 'Webmaster',
+        position: 'Webmaster & Technical Manager',
         email: 'mohamedhabiballah.bibani@ieee.org',
         phone: '58906040',
-        image: '/images/board/habib.png',
+        image: '/images/board/habib.webp',
     },
     {
         name: 'Adem Fennani',
@@ -54,13 +60,6 @@ export const teamMembers: TeamMember[] = [
         email: 'adem.fennani@ieee.org',
         phone: '29 218 948',
         image: '/images/board/adam.png',
-    },
-    {
-        name: 'Nour Chargui',
-        position: 'Speakers Coordinator',
-        email: 'nour.chargui@ieee.org',
-        phone: '58401240',
-        image: '/images/board/nour.png',
     },
     {
         name: 'Aziz Chalghaf',

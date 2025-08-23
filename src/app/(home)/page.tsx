@@ -2,6 +2,7 @@ import AboutSection from '@/app/(home)/_components/sections/about';
 import HeroSection from '@/app/(home)/_components/sections/hero';
 import HostSection from '@/app/(home)/_components/sections/host';
 import PreviousEditions from '@/app/(home)/_components/sections/previous-editions';
+import PartnersSection from './_components/sections/partners';
 
 export default function Home() {
     return (
@@ -12,7 +13,7 @@ export default function Home() {
             <HostSection />
             {/* <SpeakersSection /> */}
             <PreviousEditions />
-            {/* <PartnersSection /> */}
+            <PartnersSection />
             {/* <SponsorsSection /> */}
             {/* <LocationSection /> */}
         </main>

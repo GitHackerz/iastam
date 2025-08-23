@@ -55,14 +55,18 @@ export default function AboutSection() {
                             </span>
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-                            About IAS Technical{' '}
-                            <span className="text-primary">Annual Meeting</span>{' '}
-                            2025
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+                            <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/90 bg-clip-text text-transparent">
+                                About IAS Technical
+                            </span>{' '}
+                            <span className="bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
+                                Annual Meeting
+                            </span>{' '}
+                            <span className="text-foreground">2025</span>
                         </h2>
 
                         <div className="space-y-4">
-                            <p className="text-lg text-slate-700 leading-relaxed">
+                            <p className="text-lg text-foreground/80 leading-relaxed">
                                 The IEEE IAS Technical Annual Meeting (TAM) is a
                                 prestigious conference bringing together
                                 industry professionals, academics, and
@@ -71,7 +75,7 @@ export default function AboutSection() {
                                 engineering.
                             </p>
 
-                            <p className="text-slate-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Join us for an exciting event featuring keynote
                                 speeches, panel discussions, technical sessions,
                                 and networking opportunities with leaders in the
@@ -138,8 +142,8 @@ export default function AboutSection() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="relative"
                     >
-                        <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent z-10" />
+                        <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 bg-background/98 dark:bg-background/85 backdrop-blur-sm border border-border/20">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-transparent z-10" />
                             <Image
                                 src="/images/logos/iastam.png"
                                 alt="IAS Technical Annual Meeting"
@@ -154,8 +158,8 @@ export default function AboutSection() {
                         </div>
 
                         {/* Floating badge */}
-                        <div className="absolute -bottom-6 right-8 bg-background/80 backdrop-blur-sm px-5 py-3 rounded-lg shadow-lg border border-primary/10">
-                            <span className="text-sm font-semibold">
+                        <div className="absolute -bottom-6 right-8 bg-background/95 dark:bg-background/90 backdrop-blur-sm px-5 py-3 rounded-lg shadow-lg border border-primary/20">
+                            <span className="text-sm font-semibold text-foreground">
                                 5<sup>th</sup> Edition
                             </span>
                         </div>
