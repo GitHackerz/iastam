@@ -41,6 +41,25 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                 isLast ? "mb-0" : "mb-32"
             )}
         >
+            {/* Mobile layout - ALL cards centered */}
+            <div className="block md:hidden w-full">
+                <div className="flex justify-center px-4">
+                    <motion.div
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 30,
+                            delay: index * 0.1 + 0.3,
+                        }}
+                        className="w-full max-w-sm"
+                    >
+                        <TimelineCard item={item} index={index} isInView={isInView} />
+                    </motion.div>
+                </div>
+            </div>
+
             {/* Desktop layout - alternating sides */}
             <div className="hidden md:flex w-full">
                 {isLeft ? (
@@ -82,22 +101,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                         </motion.div>
                     </>
                 )}
-            </div>
-
-            {/* Mobile layout - all cards on the right */}
-            <div className="md:hidden w-full pl-12">
-                <motion.div
-                    initial={{ x: 50, opacity: 0 }}
-                    animate={isInView ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 200,
-                        damping: 30,
-                        delay: index * 0.1 + 0.3,
-                    }}
-                >
-                    <TimelineCard item={item} index={index} isInView={isInView} />
-                </motion.div>
             </div>
         </div>
     );
@@ -178,18 +181,21 @@ const Timeline: React.FC<TimelineProps> = ({ items, className }) => {
     const lineRef = React.useRef<HTMLDivElement>(null);
     const isLineInView = useInView(lineRef, { once: false, amount: 0.1 });
 
-    // Use a ref callback to measure actual height
+    
     const [timelineHeight, setTimelineHeight] = React.useState(0);
     
     const timelineContainerRef = React.useCallback((node: HTMLDivElement | null) => {
         if (node) {
-            // Wait for the next frame to ensure all elements are rendered
+            
             requestAnimationFrame(() => {
-                const lastItem = node.querySelector('[data-timeline-item]:last-child');
-                if (lastItem) {
-                    const rect = lastItem.getBoundingClientRect();
+                const timelineItems = node.querySelectorAll('[data-timeline-item]');
+                if (timelineItems.length > 0) {
+                    const lastItem = timelineItems[timelineItems.length - 1] as HTMLElement;
                     const containerRect = node.getBoundingClientRect();
-                    const height = rect.top - containerRect.top + 24; // Add some padding beyond the last dot
+                    const lastItemRect = lastItem.getBoundingClientRect();
+                
+                    // Stop the line at the top of the last card to prevent touching footer
+                    const height = (lastItemRect.top - containerRect.top) + 20;
                     setTimelineHeight(height);
                 }
             });
@@ -207,9 +213,9 @@ const Timeline: React.FC<TimelineProps> = ({ items, className }) => {
                     duration: 1.5,
                     ease: 'easeInOut',
                 }}
-                className="absolute left-1/2 md:left-1/2 left-6 transform md:-translate-x-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary via-primary/80 to-primary/40 origin-top"
+                className="absolute left-1/2 md:left-1/2 left-6 transform md:-translate-x-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary via-primary/80 to-primary/40 origin-top hidden md:block"
                 style={{
-                    height: timelineHeight > 0 ? `${timelineHeight}px` : `${items.length * 200}px`,
+                    height: timelineHeight > 0 ? `${timelineHeight}px` : `${(items.length - 1) * 180 + 80}px`,
                 }}
             />
 
