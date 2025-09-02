@@ -12,6 +12,10 @@ export const navLinks = [
         href: '/tech-challenge',
     },
     {
+        label: 'Program',
+        href: '/program',
+    },
+    {
         label: 'Tunisia',
         href: '/tunisia',
     },

@@ -2,125 +2,147 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
-import { Linkedin, Twitter } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Linkedin, Twitter } from 'lucide-react';
 import { keynoteSpeakers } from '@/constants/speakers';
+import AnimatedSection from '@/components/ui/animated-section';
+import SectionHeader from '@/components/ui/section-header';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const KeynoteSpeakers = () => {
     const [sectionRef, inView] = useInView({
         triggerOnce: false,
-        threshold: 0.1,
+        threshold: 0.2,
     });
 
     return (
         <section
-            id="speakers"
+            id="keynote-speakers"
             ref={sectionRef}
-            className="py-24 relative overflow-hidden"
+            className="py-24 relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background"
         >
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/3 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
-                <div
-                    className="absolute bottom-1/3 right-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-                    style={{ animationDelay: '1.5s' }}
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
+            
+            <div className="container max-w-6xl px-4 mx-auto relative">
+                <SectionHeader
+                    subtitle="Featured Speakers"
+                    title="Keynote Speakers"
+                    inView={inView}
+                    centered={true}
                 />
-            </div>
 
-            <div className="container max-w-6xl px-4 mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                        inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mx-auto mb-4">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        <span className="text-primary font-medium tracking-wider uppercase text-sm">
-                            Expert Insights
-                        </span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                        Keynote <span className="text-primary">Speakers</span>
-                    </h2>
-                    <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        Learn from industry leaders and academic pioneers at the
-                        forefront of industrial applications technology
+                <AnimatedSection animation="fadeInUp" delay={0.3}>
+                    <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-center mb-16">
+                        Join us for inspiring presentations from leading experts in automation, systems, and applied mathematics.
                     </p>
-                </motion.div>
+                </AnimatedSection>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center place-items-center">
                     {keynoteSpeakers.map((speaker, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={
-                                inView
-                                    ? { opacity: 1, y: 0 }
-                                    : { opacity: 0, y: 30 }
-                            }
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border hover:border-primary/30"
+                        <AnimatedSection
+                            key={speaker.name}
+                            animation="fadeInUp"
+                            delay={index * 0.1 + 0.5}
+                            className="w-full max-w-sm mx-auto flex justify-center"
                         >
-                            <div className="relative h-44 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
-                                <Image
-                                    src={speaker.image}
-                                    alt={speaker.alt}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
-                                <div className="absolute bottom-0 w-full p-3 sm:p-4 text-white">
-                                    <h3 className="font-bold text-sm sm:text-base">
-                                        {speaker.name}
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-white/80">
-                                        {speaker.role}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="p-3 sm:p-5 space-y-3 sm:space-y-4">
-                                <div className="flex gap-2 pt-1 sm:pt-2">
-                                    {speaker.social.linkedin && (
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            asChild
-                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
+                            <motion.div
+                                whileHover={{ y: -8 }}
+                                transition={{ duration: 0.3, ease: 'easeOut' }}
+                                className="group relative h-full"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                
+                                <div className="relative p-6 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm hover:bg-card hover:border-primary/20 hover:shadow-xl transition-all duration-500 h-full flex flex-col">
+                                    {/* Speaker Image */}
+                                    <div className="relative w-20 h-20 mx-auto mb-4">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full" />
+                                        <Image
+                                            src={speaker.image}
+                                            alt={speaker.name}
+                                            fill
+                                            className="object-cover rounded-full border-2 border-background"
+                                        />
+                                    </div>
+
+                                    {/* Speaker Info */}
+                                    <div className="text-center space-y-3 flex-grow flex flex-col">
+                                        <div>
+                                            <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+                                                {speaker.name}
+                                            </h3>
+                                            <p className="text-sm text-muted-foreground font-medium">
+                                                {speaker.role}
+                                            </p>
+                                        </div>
+
+                                        {/* Keynote Badge */}
+                                        <Badge 
+                                            variant="secondary" 
+                                            className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/20 mx-auto"
                                         >
-                                            <Link
-                                                href={speaker.social.linkedin}
-                                                target="_blank"
-                                            >
-                                                <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
+                                            Keynote Speaker
+                                        </Badge>
+
+                                        {/* Description */}
+                                        <p className="text-xs text-muted-foreground leading-relaxed flex-grow">
+                                            Expert in AI Engineering and Applied Mathematics
+                                        </p>
+
+                                        {/* Social Links */}
+                                        <div className="flex justify-center gap-2 pt-2">
+                                            <Link href={speaker.social.linkedin} target="_blank" rel="noopener noreferrer">
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="w-8 h-8 p-0 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300"
+                                                >
+                                                    <Linkedin className="w-3.5 h-3.5" />
+                                                </Button>
                                             </Link>
-                                        </Button>
-                                    )}
-                                    {speaker.social.twitter && (
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            asChild
-                                            className="rounded-full w-7 h-7 sm:w-8 sm:h-8 p-0"
-                                        >
-                                            <Link
-                                                href={speaker.social.twitter}
-                                                target="_blank"
-                                            >
-                                                <Twitter className="w-3 h-3 sm:w-4 sm:h-4" />
+                                            <Link href={speaker.social.twitter} target="_blank" rel="noopener noreferrer">
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="w-8 h-8 p-0 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300"
+                                                >
+                                                    <Twitter className="w-3.5 h-3.5" />
+                                                </Button>
                                             </Link>
-                                        </Button>
-                                    )}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </AnimatedSection>
                     ))}
                 </div>
+
+                {/* Call to Action */}
+                <AnimatedSection animation="fadeInUp" delay={1.0}>
+                    <div className="text-center mt-16">
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20 text-primary font-medium hover:border-primary/40 transition-all duration-300"
+                        >
+                            <span>More speakers to be announced</span>
+                            <motion.span
+                                className="w-2 h-2 rounded-full bg-primary"
+                                animate={{
+                                    scale: [1, 1.2, 1],
+                                    opacity: [0.5, 1, 0.5],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}
+                            />
+                        </motion.div>
+                    </div>
+                </AnimatedSection>
             </div>
         </section>
     );

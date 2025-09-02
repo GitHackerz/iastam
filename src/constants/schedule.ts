@@ -13,119 +13,80 @@ export interface DailySchedule {
 export const schedule: DailySchedule = {
     day1: [
         {
-            time: '09:00 AM - 10:00 AM',
+            time: '09:00 AM - 12:00 PM',
             title: 'Opening Ceremony',
             description:
                 'Welcome address and keynote speech by distinguished guests.',
         },
-        {
-            time: '10:15 AM - 11:15 AM',
-            title: 'Technical Session 1',
+        /*{
+            time: '04:30 PM - 05:00 PM',
+            title: 'Coffee Break',
             description:
-                'Presentations on power systems and industrial automation.',
+                'Coffee break with refreshments and networking opportunities.',
+        },*/
+        {
+            time: '05:00 PM - 07:00 PM',
+            title: 'Poster Session & Job Fair Display',
+            description: 'Poster presentations and job fair display.',
         },
         {
-            time: '11:30 AM - 12:30 PM',
-            title: 'Workshop 1',
-            description: 'Interactive workshop on smart grid technologies.',
-        },
-        {
-            time: '12:30 PM - 01:30 PM',
-            title: 'Lunch Break',
-            description: 'Buffet lunch at the venue restaurant.',
-        },
-        {
-            time: '01:30 PM - 03:00 PM',
-            title: 'Panel Discussion',
-            description: 'Discussion on the future of renewable energy.',
-        },
-        {
-            time: '03:15 PM - 04:15 PM',
-            title: 'Technical Session 2',
-            description: 'Presentations on electric machines and robotics.',
-        },
-        {
-            time: '04:30 PM - 05:30 PM',
-            title: 'Networking Event',
-            description:
-                'Opportunity to network with industry professionals and peers.',
+            time: '10:00 PM - 12:00 AM',
+            title: 'Social Activities',
+            description: 'Social activities and networking.',
         },
     ],
     day2: [
         {
-            time: '09:00 AM - 10:00 AM',
-            title: 'Keynote Speech',
-            description: 'Keynote speech by an industry leader.',
+            time: '08:00 AM - 10:00 AM',
+            title: 'Breakfast',
+            description: 'Breakfast at the venue restaurant.',
         },
         {
-            time: '10:15 AM - 11:15 AM',
-            title: 'Technical Session 3',
-            description:
-                'Presentations on industrial electronics and control systems.',
+            time: '09:30 AM - 12:00 PM',
+            title: 'Panel Discussion / Workshop A / Workshop B',
+            description: 'Panel discussion and parallel workshops.',
         },
         {
-            time: '11:30 AM - 12:30 PM',
-            title: 'Workshop 2',
-            description: 'Interactive workshop on automation technologies.',
+            time: '02:00 PM - 04:00 PM',
+            title: 'Pitch Tech / Round Tables / Workshop C / Workshop D',
+            description: 'Pitch Tech, round tables, and parallel workshops.',
         },
         {
-            time: '12:30 PM - 01:30 PM',
-            title: 'Lunch Break',
-            description: 'Buffet lunch at the venue restaurant.',
+            time: '05:00 PM - 08:00 PM',
+            title: 'Pitch Non-Technical Challenge',
+            description: 'Presentations on non-technical challenges.',
         },
         {
-            time: '01:30 PM - 03:00 PM',
-            title: 'Technical Session 4',
-            description: 'Presentations on smart manufacturing and IoT.',
-        },
-        {
-            time: '03:15 PM - 04:15 PM',
-            title: 'Panel Discussion',
-            description:
-                'Discussion on the impact of AI in industrial applications.',
-        },
-        {
-            time: '04:30 PM - 05:30 PM',
-            title: 'Networking Event',
-            description:
-                'Opportunity to network with industry professionals and peers.',
+            time: '08:00 PM - 12:00 AM',
+            title: 'Evening Party',
+            description: 'Party with music and entertainment.',
         },
     ],
     day3: [
         {
-            time: '09:00 AM - 10:00 AM',
-            title: 'Keynote Speech',
-            description: 'Keynote speech by a renowned researcher.',
+            time: '08:00 AM - 09:00 AM',
+            title: 'Breakfast',
+            description: 'Breakfast at the venue restaurant.',
         },
         {
-            time: '10:15 AM - 11:15 AM',
-            title: 'Technical Session 5',
-            description: 'Presentations on renewable energy technologies.',
+            time: '09:30 AM - 12:00 PM',
+            title: 'Award Ceremony, Hackathon Winners, Best Ambassador',
+            description: 'Recognition of winners and closing ceremony.',
         },
         {
-            time: '11:30 AM - 12:30 PM',
-            title: 'Workshop 3',
-            description: 'Interactive workshop on energy storage systems.',
+            time: '12:00 PM - 01:00 PM',
+            title: 'Check-Out',
+            description: 'Hotel check-out.',
         },
         {
-            time: '12:30 PM - 01:30 PM',
-            title: 'Lunch Break',
-            description: 'Buffet lunch at the venue restaurant.',
+            time: '01:00 PM - 02:30 PM',
+            title: 'Networking Lunch',
+            description: 'Networking lunch with participants and guests.',
         },
         {
-            time: '01:30 PM - 03:00 PM',
-            title: 'Technical Session 6',
-            description: 'Presentations on power electronics and drives.',
-        },
-        {
-            time: '03:15 PM - 04:15 PM',
-            title: 'Panel Discussion',
-            description: 'Discussion on the future of industrial automation.',
-        },
-        {
-            time: '04:30 PM - 05:30 PM',
-            title: 'Closing Ceremony',
-            description: 'Closing remarks and awards presentation.',
+            time: '02:30 PM - 04:00 PM',
+            title: 'Tourist journey',
+            description: 'Tourist trip and cultural visit.',
         },
     ],
 };
