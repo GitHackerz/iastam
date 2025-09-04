@@ -13,14 +13,14 @@ export default function TechChallengeTimeline() {
     });
 
     return (
-        <section 
+        <section
             ref={ref}
             className="py-24 bg-gradient-to-br from-background via-background to-muted/20 relative overflow-hidden"
         >
             {/* Background decorative elements */}
             <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
-            
+
             <div className="container mx-auto px-4 relative">
                 <SectionHeader
                     subtitle="Complete Innovation Journey"
@@ -31,7 +31,9 @@ export default function TechChallengeTimeline() {
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    animate={
+                        inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="max-w-6xl mx-auto"
                 >

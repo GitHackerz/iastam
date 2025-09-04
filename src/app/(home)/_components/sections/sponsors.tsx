@@ -3,28 +3,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
 import DecorativeLines from '@/components/ui/decorative-lines';
-
-const sponsorLevels = [
-    {
-        level: 'Diamond',
-        sponsors: [
-            { name: 'Sponsor 1', logo: '/images/sponsors/sponsor1.png' },
-            // Add more sponsors
-        ],
-    },
-    {
-        level: 'Gold',
-        sponsors: [
-            { name: 'Sponsor 2', logo: '/images/sponsors/sponsor2.png' },
-            // Add more sponsors
-        ],
-    },
-    // Add more levels
-];
+import { sponsorLevels } from '@/constants/sponsors';
 
 export default function SponsorsSection() {
     const [sectionRef, inView] = useInView({
@@ -124,25 +104,6 @@ export default function SponsorsSection() {
                         </motion.div>
                     ))}
                 </div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={
-                        inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="text-center mt-16"
-                >
-                    <Button size="lg" className="group" asChild>
-                        <Link
-                            href="/sponsors"
-                            className="flex items-center gap-2"
-                        >
-                            Become a Sponsor
-                            <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                        </Link>
-                    </Button>
-                </motion.div>
             </div>
         </section>
     );

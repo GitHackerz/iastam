@@ -57,7 +57,7 @@ export default function AboutSection() {
 
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
                             <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/90 bg-clip-text text-transparent">
-                                About IAS Technical
+                                About IAS Tunisia
                             </span>{' '}
                             <span className="bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
                                 Annual Meeting
@@ -67,7 +67,7 @@ export default function AboutSection() {
 
                         <div className="space-y-4">
                             <p className="text-lg text-foreground/80 leading-relaxed">
-                                The IEEE IAS Technical Annual Meeting (TAM) is a
+                                The IEEE IAS Tunisia Annual Meeting (TAM) is a
                                 prestigious conference bringing together
                                 industry professionals, academics, and
                                 researchers in the field of industrial
@@ -99,7 +99,12 @@ export default function AboutSection() {
                                 className="border-primary/20 hover:border-primary"
                                 asChild
                             >
-                                <Link href="/register">Register Now</Link>
+                                <Link
+                                    href="https://forms.gle/H6NNPaL1b8MtDXiG9"
+                                    target="_blank"
+                                >
+                                    Register Now
+                                </Link>
                             </Button>
                         </div>
 
@@ -146,7 +151,7 @@ export default function AboutSection() {
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-transparent z-10" />
                             <Image
                                 src="/images/logos/iastam.png"
-                                alt="IAS Technical Annual Meeting"
+                                alt="IAS Tunisia Annual Meeting"
                                 fill
                                 className="object-contain p-6"
                                 sizes="(max-width: 768px) 100vw, 50vw"

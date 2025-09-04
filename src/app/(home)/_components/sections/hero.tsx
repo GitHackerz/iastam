@@ -266,7 +266,7 @@ export default function HeroSection() {
                                 transition={{ duration: 0.2 }}
                             >
                                 <Calendar className="h-5 w-5 text-primary" />
-                                <span>Coming Soon</span>
+                                <span>October 3-5, 2025</span>
                             </motion.div>
                             <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                             <motion.div
@@ -275,7 +275,7 @@ export default function HeroSection() {
                                 transition={{ duration: 0.2 }}
                             >
                                 <MapPin className="h-5 w-5 text-primary" />
-                                <span>Venue to be announced</span>
+                                <span>Hammamet Garden Resort & Spa</span>
                             </motion.div>
                         </div>
                     </AnimatedSection>
@@ -283,7 +283,7 @@ export default function HeroSection() {
                     {/* Enhanced CTA Buttons */}
                     <AnimatedSection animation="fadeInUp" delay={1.0}>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                            <Link href="/register">
+                            <Link href="https://forms.gle/H6NNPaL1b8MtDXiG9">
                                 <MorphingButton
                                     variant="primary"
                                     size="lg"
@@ -293,13 +293,13 @@ export default function HeroSection() {
                                     <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
                                 </MorphingButton>
                             </Link>
-                            <Link href="/schedule">
+                            <Link href="/startups-forum">
                                 <MorphingButton
                                     variant="outline"
                                     size="lg"
                                     className="border-primary/20 hover:border-primary"
                                 >
-                                    View Schedule
+                                    Join Startups Forum
                                 </MorphingButton>
                             </Link>
                         </div>

@@ -74,9 +74,8 @@ export default function RootLayout({
             <body className={inter.className}>
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
+                    defaultTheme="light"
+                    forcedTheme="light"
                 >
                     <Navbar />
                     {children}

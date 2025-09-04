@@ -22,13 +22,13 @@ import { useEffect, useState as useThemeState } from 'react';
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const { theme, resolvedTheme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useThemeState(false);
 
     // Ensure component is mounted to avoid hydration mismatch
     useEffect(() => {
         setMounted(true);
-    }, []);
+    }, [setMounted]);
 
     // Get the appropriate logo based on theme
     const getLogoSrc = () => {
@@ -68,14 +68,19 @@ export default function Navbar() {
     };
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/40">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-transparent shadow-sm border-b border-border/30">
+            {/* Overlay: adaptive semi-transparent + backdrop blur for consistent effect */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md backdrop-saturate-150"
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(getBreadcrumbData()),
                 }}
             />
-            <nav className="fixed w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
+            <nav className="relative w-full z-10">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
@@ -108,7 +113,7 @@ export default function Navbar() {
                                 ))}
                             </div>
                             <Separator orientation="vertical" className="h-6" />
-                            <ThemeToggle />
+                            {/* <ThemeToggle /> */}
                             <Button
                                 asChild
                                 className={`bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 ${

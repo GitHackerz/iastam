@@ -96,5 +96,4 @@ export const teamMembers: TeamMember[] = [
         phone: '93 722 130',
         image: '/images/board/fedi.png',
     },
-    
 ];

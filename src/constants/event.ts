@@ -2,7 +2,7 @@ export const eventInfo = {
     name: 'IEEE IAS Tunisia Annual Meeting',
     shortName: 'IASTAM 5',
     edition: '5',
-    date: 'Coming Soon',
+    date: 'October 3-5, 2025',
     year: '2025',
     metadata: {
         title: 'IASTAM 5 | IEEE IAS Tunisia Annual Meeting 2025',
@@ -11,14 +11,10 @@ export const eventInfo = {
         siteUrl: 'https://ias-am.ieee.tn',
     },
     venue: {
-        name: 'To be announced',
-        address: 'To be announced',
-        city: 'To be announced',
+        name: 'Hammamet Garden Resort & Spa',
+        address: 'Zone Touristique Yasmine Hammamet',
+        city: 'Hammamet, Tunisia',
         timezone: 'Africa/Tunis',
-    },
-    schedule: {
-        dailyStart: 'To be announced',
-        dailyEnd: 'To be announced',
     },
     contact: {
         chair: {

@@ -26,7 +26,7 @@ export const WorkshopsSection = () => {
         >
             {/* Full-width background */}
             <div className="absolute inset-0 bg-primary/5"></div>
-            
+
             <div className="container max-w-6xl px-4 mx-auto relative">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

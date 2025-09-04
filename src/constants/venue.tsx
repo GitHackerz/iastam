@@ -35,7 +35,8 @@ export const venueFeatures: VenueFeature[] = [
 
 export const venueInfo = {
     description:
-        'The venue for IASTAM 5 will be announced soon. We are committed to providing a location that combines modern conference facilities with comfortable amenities for all attendees.',
-    mapUrl: '',
-    googleMapsEmbed: '',
+        "IASTAM 5 will take place at the beautiful Hammamet Garden Resort & Spa, located in the heart of Tunisia's premier tourist destination. This luxury resort offers state-of-the-art conference facilities combined with world-class amenities and Mediterranean beachfront access.",
+    mapUrl: 'https://maps.app.goo.gl/924UD32CvhESvPYe9',
+    googleMapsEmbed:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.3403526309594!2d10.56497127550969!3d36.40095989010357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd61fc0da7e8ef%3A0x585d4ef88350afa8!2sHammamet%20Garden!5e0!3m2!1sen!2stn!4v1756925912432!5m2!1sen!2stn',
 };

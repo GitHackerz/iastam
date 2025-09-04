@@ -25,7 +25,7 @@ export const KeynoteSpeakers = () => {
         >
             {/* Background decorative elements */}
             <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
-            
+
             <div className="container max-w-6xl px-4 mx-auto relative">
                 <SectionHeader
                     subtitle="Featured Speakers"
@@ -36,7 +36,8 @@ export const KeynoteSpeakers = () => {
 
                 <AnimatedSection animation="fadeInUp" delay={0.3}>
                     <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-center mb-16">
-                        Join us for inspiring presentations from leading experts in automation, systems, and applied mathematics.
+                        Join us for inspiring presentations from leading experts
+                        in automation, systems, and applied mathematics.
                     </p>
                 </AnimatedSection>
 
@@ -54,7 +55,7 @@ export const KeynoteSpeakers = () => {
                                 className="group relative h-full"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                
+
                                 <div className="relative p-6 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm hover:bg-card hover:border-primary/20 hover:shadow-xl transition-all duration-500 h-full flex flex-col">
                                     {/* Speaker Image */}
                                     <div className="relative w-20 h-20 mx-auto mb-4">
@@ -79,8 +80,8 @@ export const KeynoteSpeakers = () => {
                                         </div>
 
                                         {/* Keynote Badge */}
-                                        <Badge 
-                                            variant="secondary" 
+                                        <Badge
+                                            variant="secondary"
                                             className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/20 mx-auto"
                                         >
                                             Keynote Speaker
@@ -88,12 +89,17 @@ export const KeynoteSpeakers = () => {
 
                                         {/* Description */}
                                         <p className="text-xs text-muted-foreground leading-relaxed flex-grow">
-                                            Expert in AI Engineering and Applied Mathematics
+                                            Expert in AI Engineering and Applied
+                                            Mathematics
                                         </p>
 
                                         {/* Social Links */}
                                         <div className="flex justify-center gap-2 pt-2">
-                                            <Link href={speaker.social.linkedin} target="_blank" rel="noopener noreferrer">
+                                            <Link
+                                                href={speaker.social.linkedin}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Button
                                                     variant="outline"
                                                     size="sm"
@@ -102,7 +108,11 @@ export const KeynoteSpeakers = () => {
                                                     <Linkedin className="w-3.5 h-3.5" />
                                                 </Button>
                                             </Link>
-                                            <Link href={speaker.social.twitter} target="_blank" rel="noopener noreferrer">
+                                            <Link
+                                                href={speaker.social.twitter}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Button
                                                     variant="outline"
                                                     size="sm"

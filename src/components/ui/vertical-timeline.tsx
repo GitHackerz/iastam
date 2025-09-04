@@ -34,11 +34,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
     const isInView = useInView(itemRef, { once: false, amount: 0.3 });
 
     return (
-        <div 
+        <div
             ref={itemRef}
             className={cn(
-                "relative flex items-center",
-                isLast ? "mb-0" : "mb-32"
+                'relative flex items-center',
+                isLast ? 'mb-0' : 'mb-32',
             )}
         >
             {/* Mobile layout - ALL cards centered */}
@@ -46,7 +46,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                 <div className="flex justify-center px-4">
                     <motion.div
                         initial={{ y: 50, opacity: 0 }}
-                        animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                        animate={
+                            isInView
+                                ? { y: 0, opacity: 1 }
+                                : { y: 50, opacity: 0 }
+                        }
                         transition={{
                             type: 'spring',
                             stiffness: 200,
@@ -55,7 +59,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                         }}
                         className="w-full max-w-sm"
                     >
-                        <TimelineCard item={item} index={index} isInView={isInView} />
+                        <TimelineCard
+                            item={item}
+                            index={index}
+                            isInView={isInView}
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -67,7 +75,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                         {/* Left side content */}
                         <motion.div
                             initial={{ x: -50, opacity: 0 }}
-                            animate={isInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
+                            animate={
+                                isInView
+                                    ? { x: 0, opacity: 1 }
+                                    : { x: -50, opacity: 0 }
+                            }
                             transition={{
                                 type: 'spring',
                                 stiffness: 200,
@@ -76,7 +88,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                             }}
                             className="w-1/2 pr-8"
                         >
-                            <TimelineCard item={item} index={index} isInView={isInView} />
+                            <TimelineCard
+                                item={item}
+                                index={index}
+                                isInView={isInView}
+                            />
                         </motion.div>
                         {/* Right side spacer */}
                         <div className="w-1/2 pl-8" />
@@ -88,7 +104,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                         {/* Right side content */}
                         <motion.div
                             initial={{ x: 50, opacity: 0 }}
-                            animate={isInView ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
+                            animate={
+                                isInView
+                                    ? { x: 0, opacity: 1 }
+                                    : { x: 50, opacity: 0 }
+                            }
                             transition={{
                                 type: 'spring',
                                 stiffness: 200,
@@ -97,7 +117,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
                             }}
                             className="w-1/2 pl-8"
                         >
-                            <TimelineCard item={item} index={index} isInView={isInView} />
+                            <TimelineCard
+                                item={item}
+                                index={index}
+                                isInView={isInView}
+                            />
                         </motion.div>
                     </>
                 )}
@@ -106,9 +130,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
     );
 };
 
-const TimelineCard: React.FC<{ 
-    item: TimelineItemData; 
-    index: number; 
+const TimelineCard: React.FC<{
+    item: TimelineItemData;
+    index: number;
     isInView: boolean;
 }> = ({ item, index, isInView }) => {
     return (
@@ -121,7 +145,11 @@ const TimelineCard: React.FC<{
                     <div className="flex items-start gap-4">
                         <motion.div
                             initial={{ scale: 0, rotate: -180 }}
-                            animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
+                            animate={
+                                isInView
+                                    ? { scale: 1, rotate: 0 }
+                                    : { scale: 0, rotate: -180 }
+                            }
                             transition={{
                                 type: 'spring',
                                 stiffness: 300,
@@ -161,7 +189,11 @@ const TimelineCard: React.FC<{
                 <CardContent className="pt-0">
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        animate={
+                            isInView
+                                ? { opacity: 1, y: 0 }
+                                : { opacity: 0, y: 10 }
+                        }
                         transition={{
                             delay: index * 0.1 + 0.5,
                             duration: 0.3,
@@ -181,26 +213,32 @@ const Timeline: React.FC<TimelineProps> = ({ items, className }) => {
     const lineRef = React.useRef<HTMLDivElement>(null);
     const isLineInView = useInView(lineRef, { once: false, amount: 0.1 });
 
-    
     const [timelineHeight, setTimelineHeight] = React.useState(0);
-    
-    const timelineContainerRef = React.useCallback((node: HTMLDivElement | null) => {
-        if (node) {
-            
-            requestAnimationFrame(() => {
-                const timelineItems = node.querySelectorAll('[data-timeline-item]');
-                if (timelineItems.length > 0) {
-                    const lastItem = timelineItems[timelineItems.length - 1] as HTMLElement;
-                    const containerRect = node.getBoundingClientRect();
-                    const lastItemRect = lastItem.getBoundingClientRect();
-                
-                    // Stop the line at the top of the last card to prevent touching footer
-                    const height = (lastItemRect.top - containerRect.top) + 20;
-                    setTimelineHeight(height);
-                }
-            });
-        }
-    }, []);
+
+    const timelineContainerRef = React.useCallback(
+        (node: HTMLDivElement | null) => {
+            if (node) {
+                requestAnimationFrame(() => {
+                    const timelineItems = node.querySelectorAll(
+                        '[data-timeline-item]',
+                    );
+                    if (timelineItems.length > 0) {
+                        const lastItem = timelineItems[
+                            timelineItems.length - 1
+                        ] as HTMLElement;
+                        const containerRect = node.getBoundingClientRect();
+                        const lastItemRect = lastItem.getBoundingClientRect();
+
+                        // Stop the line at the top of the last card to prevent touching footer
+                        const height =
+                            lastItemRect.top - containerRect.top + 20;
+                        setTimelineHeight(height);
+                    }
+                });
+            }
+        },
+        [],
+    );
 
     return (
         <div ref={timelineRef} className={cn('relative', className)}>
@@ -215,7 +253,10 @@ const Timeline: React.FC<TimelineProps> = ({ items, className }) => {
                 }}
                 className="absolute left-1/2 md:left-1/2 left-6 transform md:-translate-x-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary via-primary/80 to-primary/40 origin-top hidden md:block"
                 style={{
-                    height: timelineHeight > 0 ? `${timelineHeight}px` : `${(items.length - 1) * 180 + 80}px`,
+                    height:
+                        timelineHeight > 0
+                            ? `${timelineHeight}px`
+                            : `${(items.length - 1) * 180 + 80}px`,
                 }}
             />
 
@@ -223,9 +264,9 @@ const Timeline: React.FC<TimelineProps> = ({ items, className }) => {
             <div ref={timelineContainerRef} className="relative">
                 {items.map((item, index) => (
                     <div key={item.id} data-timeline-item>
-                        <TimelineItem 
-                            item={item} 
-                            index={index} 
+                        <TimelineItem
+                            item={item}
+                            index={index}
                             isLast={index === items.length - 1}
                         />
                     </div>
