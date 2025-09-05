@@ -30,7 +30,7 @@ export default function TimeLeftSection() {
     });
 
     useEffect(() => {
-        const targetDate = new Date('2025-10-04T00:00:00');
+        const targetDate = new Date('2025-10-03T08:00:00');
 
         const calculateTimeLeft = () => {
             const difference = +targetDate - +new Date();

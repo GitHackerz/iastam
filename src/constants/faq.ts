@@ -6,7 +6,7 @@ export interface FaqItem {
 export const faqs: FaqItem[] = [
     {
         question: 'When and where is IASTAM 5 taking place?',
-        answer: 'IASTAM 5 will be held in 2025. The venue and specific dates will be announced soon.',
+        answer: 'IASTAM 5 will be held October 3-5, 2025 at Hammamet Garden Resort & Spa in Hammamet, Tunisia.',
     },
     {
         question: 'How can I register for the event?',

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, Clock, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { eventInfo } from '@/constants/event';
 
 export const ProgramsHero = () => {
@@ -66,14 +66,6 @@ export const ProgramsHero = () => {
                             <MapPin className="h-5 w-5 text-primary" />
                             <span>
                                 {eventInfo.venue.name}, {eventInfo.venue.city}
-                            </span>
-                        </div>
-                        <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-primary" />
-                        <div className="flex items-center gap-2">
-                            <Clock className="h-5 w-5 text-primary" />
-                            <span>
-                                {eventInfo.schedule.dailyStart} -{' '}
-                                {eventInfo.schedule.dailyEnd}
                             </span>
                         </div>
                     </div>

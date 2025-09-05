@@ -26,9 +26,6 @@ export const ContactInfo = () => {
                     <h3 className="font-semibold">Date & Time</h3>
                     <p className="text-muted-foreground mt-1">
                         {eventInfo.date}
-                        <br />
-                        {eventInfo.schedule.dailyStart} -{' '}
-                        {eventInfo.schedule.dailyEnd}
                     </p>
                 </div>
             </div>

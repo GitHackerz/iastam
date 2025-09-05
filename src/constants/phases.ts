@@ -1,0 +1,77 @@
+import {
+    Search,
+    CheckCircle,
+    Lightbulb,
+    Cog,
+    Mic,
+    Calendar,
+    MessageSquare,
+} from 'lucide-react';
+import { TimelineItemData } from '@/components/ui/vertical-timeline';
+
+export const phases: TimelineItemData[] = [
+    {
+        id: 'registration',
+        title: 'Registration',
+        date: 'Jul 28 – Aug 9',
+        duration: '13 days',
+        description: 'Teams register and submit applications.',
+        icon: Calendar,
+        side: 'left',
+    },
+    {
+        id: 'info-session',
+        title: 'Info Session Hackini',
+        date: 'Aug 10',
+        duration: '1 day',
+        description: 'Introduction to Hackini and challenge guidelines.',
+        icon: MessageSquare,
+        side: 'right',
+    },
+    {
+        id: 'phase-1-screening',
+        title: 'Phase 1: Eligibility & Idea Screening',
+        date: 'Aug 11 – Aug 17',
+        duration: '7 days',
+        description: 'Screening and evaluation of ideas.',
+        icon: Search,
+        side: 'left',
+    },
+    {
+        id: 'phase-1-selection',
+        title: 'Phase 1 Selection',
+        date: 'Aug 18 – Aug 24',
+        duration: '6 days',
+        description: 'Selection of top candidates and ideas.',
+        icon: CheckCircle,
+        side: 'right',
+    },
+    {
+        id: 'phase-2-ideation',
+        title: 'Phase 2: Ideation & Development',
+        date: 'Aug 25 – Sep 30',
+        duration: '37 days',
+        description: 'Teams refine concepts and plans.',
+        icon: Lightbulb,
+        side: 'left',
+    },
+    {
+        id: 'phase-3-technical',
+        title: 'Phase 3: Technical Development & MVP Delivery',
+        date: 'Sep 11 – Sep 30',
+        duration: '20 days',
+        description: 'Development of MVP and proof of concept.',
+        icon: Cog,
+        side: 'right',
+    },
+    {
+        id: 'phase-4-final',
+        title: 'Phase 4: Final Pitch',
+        date: 'Oct 4',
+        duration: '1 day',
+        description:
+            'Teams present their solutions in a professional pitch competition.',
+        icon: Mic,
+        side: 'left',
+    },
+];

@@ -15,10 +15,29 @@ import {
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { useTheme } from 'next-themes';
+import { useEffect, useState as useThemeState } from 'react';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useThemeState(false);
+
+    // Ensure component is mounted to avoid hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+    }, [setMounted]);
+
+    // Get the appropriate logo based on theme
+    const getLogoSrc = () => {
+        if (!mounted) return '/images/logos/iastam.png'; // Default fallback
+        const isDark = resolvedTheme === 'dark';
+        return isDark
+            ? '/images/logos/iastam-w.png'
+            : '/images/logos/iastam.png';
+    };
 
     // Create breadcrumb structured data
     const getBreadcrumbData = () => {
@@ -49,24 +68,34 @@ export default function Navbar() {
     };
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/40">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-transparent shadow-sm border-b border-border/30">
+            {/* Overlay: adaptive semi-transparent + backdrop blur for consistent effect */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md backdrop-saturate-150"
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(getBreadcrumbData()),
                 }}
             />
-            <nav className="fixed w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
+            <nav className="relative w-full z-10">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
-                        <Link href="/" className="font-bold text-xl">
-                            <Image
-                                src="/images/logos/iastam.png"
-                                alt="Logo"
-                                width={120}
-                                height={30}
-                            />
+                        <Link href="/" className="font-bold text-xl group">
+                            <div className="relative overflow-hidden rounded-lg p-1">
+                                <Image
+                                    src={getLogoSrc()}
+                                    alt="IASTAM Logo"
+                                    width={120}
+                                    height={30}
+                                    className="transition-transform duration-300 group-hover:scale-105"
+                                    priority
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                            </div>
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -76,9 +105,10 @@ export default function Navbar() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className="hover:text-primary text-sm font-medium px-3"
+                                        className="hover:text-primary text-sm font-medium px-3 py-2 rounded-md transition-colors duration-200 relative group"
                                     >
                                         {link.label}
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" />
                                     </Link>
                                 ))}
                             </div>
@@ -86,7 +116,7 @@ export default function Navbar() {
                             {/* <ThemeToggle /> */}
                             <Button
                                 asChild
-                                className={`bg-primary text-primary-foreground hover:bg-primary/90 ${
+                                className={`bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 ${
                                     ctaButton.disabled
                                         ? 'opacity-70 cursor-not-allowed hover:bg-primary relative overflow-hidden'
                                         : ''
@@ -122,15 +152,18 @@ export default function Navbar() {
                                             href={link.href}
                                             key={link.href}
                                             onClick={() => setIsOpen(false)}
+                                            className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-200"
                                         >
                                             {link.label}
                                         </Link>
                                     ))}
-                                    {/* <div className="flex items-center justify-between px-2">
-                                        <span className="text-sm">Theme</span>
+                                    <div className="flex items-center justify-between px-3 py-2">
+                                        <span className="text-sm font-medium">
+                                            Theme
+                                        </span>
                                         <ThemeToggle />
-                                    </div> */}
-                                    <Separator className="my-2 mx-14" />
+                                    </div>
+                                    <Separator className="my-2 mx-3" />
                                     <Button
                                         className={`w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4 ${
                                             ctaButton.disabled

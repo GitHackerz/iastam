@@ -14,19 +14,40 @@ export default function ContactPage() {
     });
 
     return (
-        <div className="bg-background min-h-screen">
+        <div className="bg-gradient-to-br from-background via-background/98 to-primary/5 min-h-screen">
             <ContactHero />
             <section
                 ref={ref}
                 className="relative w-full py-24 overflow-hidden"
             >
-                <div className="absolute inset-0 bg-grid-small-black/[0.2] -z-10 dark:bg-grid-small-white/[0.2]" />
+                <div className="absolute inset-0 bg-dots opacity-20 -z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -z-10" />
 
                 <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 right-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse" />
-                    <div
-                        className="absolute bottom-20 left-12 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-pulse"
-                        style={{ animationDelay: '1s' }}
+                    <motion.div
+                        className="absolute top-20 right-12 w-96 h-96 bg-gradient-to-br from-primary/15 to-accent/15 rounded-full filter blur-3xl"
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.3, 0.6, 0.3],
+                        }}
+                        transition={{
+                            duration: 6,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    />
+                    <motion.div
+                        className="absolute bottom-20 left-12 w-96 h-96 bg-gradient-to-br from-accent/15 to-secondary/15 rounded-full filter blur-3xl"
+                        animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.2, 0.5, 0.2],
+                        }}
+                        transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                            delay: 2,
+                        }}
                     />
                 </div>
 
@@ -39,20 +60,45 @@ export default function ContactPage() {
                                 : { opacity: 0, y: 20 }
                         }
                         transition={{ duration: 0.7 }}
-                        className="text-center space-y-6 max-w-3xl mx-auto mb-16"
+                        className="text-center space-y-6 max-w-3xl mx-auto mb-20"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mx-auto">
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        <motion.div
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 backdrop-blur-sm rounded-full mx-auto border border-primary/20"
+                            animate={{
+                                scale: [1, 1.02, 1],
+                            }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: 'easeInOut',
+                            }}
+                        >
+                            <motion.span
+                                className="w-2 h-2 rounded-full bg-primary"
+                                animate={{
+                                    scale: [1, 1.3, 1],
+                                    opacity: [0.5, 1, 0.5],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}
+                            />
                             <span className="text-primary font-medium tracking-wider uppercase text-sm">
                                 Get in Touch
                             </span>
-                        </div>
+                        </motion.div>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Let&apos;s Start a Conversation
+                            Let&apos;s Start a{' '}
+                            <span className="text-gradient-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                                Conversation
+                            </span>
                         </h2>
-                        <p className="text-lg text-muted-foreground">
+                        <p className="text-lg text-muted-foreground leading-relaxed">
                             Reach out to us for inquiries, collaborations, or
-                            any other information about IASTAM
+                            any other information about IASTAM. We&apos;re here
+                            to help and excited to connect with you.
                         </p>
                     </motion.div>
 

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { MapPin, Phone, Mail, MapIcon } from 'lucide-react';
-import DecorativeLines from '@/components/ui/decorative-lines';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { eventInfo } from '@/constants/event';
@@ -137,9 +136,8 @@ export default function LocationSection() {
                                 : { opacity: 0, x: 50 }
                         }
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="bg-primary/5 p-4 md:p-8 rounded-2xl border border-primary/20 aspect-square max-w-md mx-auto relative overflow-hidden"
+                        className="bg-primary/5 rounded-2xl border border-primary/20 aspect-square max-w-md mx-auto relative overflow-hidden"
                     >
-                        <DecorativeLines />
                         <iframe
                             src={venueInfo.googleMapsEmbed}
                             width="100%"

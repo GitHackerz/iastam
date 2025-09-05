@@ -15,10 +15,14 @@ export const ScheduleSection = () => {
     const [selectedDay, setSelectedDay] = useState('day1');
 
     return (
-        <section id="schedule" ref={sectionRef} className="py-24 relative">
+        <section
+            id="schedule"
+            ref={sectionRef}
+            className="py-16 md:py-24 relative bg-gradient-to-b from-background to-muted/20"
+        >
             <div className="absolute inset-0 z-0">
-                <div className="absolute top-1/4 left-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-1/4 right-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
+                <div className="absolute top-1/4 left-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute bottom-1/4 right-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
             </div>
 
             <div className="container max-w-6xl px-4 mx-auto z-20 relative">
@@ -123,7 +127,7 @@ export const ScheduleSection = () => {
                                             >
                                                 <div className="sm:grid sm:grid-cols-4 gap-3 sm:gap-4 items-start">
                                                     {/* Timeline dot */}
-                                                    <div className="absolute left-4 md:left-1/4 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center -ml-3 sm:-ml-4 md:-ml-5 mt-1 hidden sm:flex z-20">
+                                                    <div className="absolute left-4 md:left-1/4 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary/10 rounded-full items-center justify-center -ml-3 sm:-ml-4 md:-ml-5 mt-1 hidden sm:flex z-20">
                                                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full"></div>
                                                     </div>
 
@@ -136,13 +140,56 @@ export const ScheduleSection = () => {
                                                     </div>
 
                                                     {/* Event details */}
-                                                    <div className="sm:col-span-3 bg-card rounded-xl shadow-md border border-border/40 hover:shadow-lg transition-shadow p-4 sm:p-5 sm:ml-6 relative z-10">
-                                                        <h4 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
-                                                            {event.title}
-                                                        </h4>
-                                                        <p className="text-sm text-muted-foreground">
-                                                            {event.description}
-                                                        </p>
+                                                    <div className="sm:col-span-3 group relative overflow-hidden">
+                                                        <div className="bg-card rounded-xl shadow-sm border border-border/40 hover:shadow-lg hover:border-primary/20 transition-all duration-300 p-4 sm:p-6 sm:ml-6 relative z-10">
+                                                            {/* Event type badge */}
+                                                            {event.type && (
+                                                                <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mb-3 bg-primary/10 text-primary">
+                                                                    {event.type
+                                                                        .charAt(
+                                                                            0,
+                                                                        )
+                                                                        .toUpperCase() +
+                                                                        event.type.slice(
+                                                                            1,
+                                                                        )}
+                                                                </div>
+                                                            )}
+
+                                                            <h4 className="text-base sm:text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                                                                {event.title}
+                                                            </h4>
+
+                                                            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                                                                {
+                                                                    event.description
+                                                                }
+                                                            </p>
+
+                                                            {/* Speaker info */}
+                                                            {event.speaker && (
+                                                                <div className="flex items-center text-xs text-primary font-medium">
+                                                                    <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                                                                    Speaker:{' '}
+                                                                    {
+                                                                        event.speaker
+                                                                    }
+                                                                </div>
+                                                            )}
+
+                                                            {/* Location info */}
+                                                            {event.location && (
+                                                                <div className="flex items-center text-xs text-muted-foreground mt-1">
+                                                                    <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full mr-2"></div>
+                                                                    {
+                                                                        event.location
+                                                                    }
+                                                                </div>
+                                                            )}
+
+                                                            {/* Hover effect gradient */}
+                                                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </motion.li>
