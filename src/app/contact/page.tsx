@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ContactForm } from '@/app/contact/_components/contact-form';
 import { ContactInfo } from '@/app/contact/_components/contact-info';
 import { ContactHero } from './_components/contact-hero';
 import { Faq } from './_components/faq';
@@ -90,41 +89,31 @@ export default function ContactPage() {
                             </span>
                         </motion.div>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Let&apos;s Start a{' '}
+                            Connect with{' '}
                             <span className="text-gradient-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                                Conversation
+                                IASTAM 2025
                             </span>
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            Reach out to us for inquiries, collaborations, or
-                            any other information about IASTAM. We&apos;re here
-                            to help and excited to connect with you.
+                            Have questions about the conference? Want to get
+                            involved? We&apos;re here to help and excited to
+                            connect with you. Reach out to us for inquiries,
+                            collaborations, or any information about IASTAM.
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                    <div className="max-w-4xl mx-auto">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={
                                 inView
-                                    ? { opacity: 1, x: 0 }
-                                    : { opacity: 0, x: -50 }
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 30 }
                             }
                             transition={{ duration: 0.7 }}
+                            className="bg-card/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 shadow-xl"
                         >
                             <ContactInfo />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={
-                                inView
-                                    ? { opacity: 1, x: 0 }
-                                    : { opacity: 0, x: 50 }
-                            }
-                            transition={{ duration: 0.7 }}
-                            className="bg-card border rounded-lg p-6 shadow-md"
-                        >
-                            <ContactForm />
                         </motion.div>
                     </div>
                 </div>

@@ -26,9 +26,11 @@ interface WorkshopPanelItem {
 
 const getWorkshopsAndPanels = (): WorkshopPanelItem[] => {
     const items: WorkshopPanelItem[] = [];
-    
+
     // Get workshops from day 2
-    const day2Workshops = schedule.day2.filter(event => event.type === 'workshop');
+    const day2Workshops = schedule.day2.filter(
+        event => event.type === 'workshop',
+    );
     day2Workshops.forEach(workshop => {
         items.push({
             title: workshop.title,
@@ -37,10 +39,10 @@ const getWorkshopsAndPanels = (): WorkshopPanelItem[] => {
             speaker: workshop.speaker || 'TBD',
             date: 'October 4, 2025',
             type: 'Workshop',
-            locationType: 'On-site'
+            locationType: 'On-site',
         });
     });
-    
+
     // Get panel discussions from day 2
     const day2Panels = schedule.day2.filter(event => event.type === 'panel');
     day2Panels.forEach(panel => {
@@ -51,10 +53,10 @@ const getWorkshopsAndPanels = (): WorkshopPanelItem[] => {
             speaker: 'Panel Discussion',
             date: 'October 4, 2025',
             type: 'Panel Discussion',
-            locationType: 'On-site'
+            locationType: 'On-site',
         });
     });
-    
+
     return items;
 };
 
@@ -91,11 +93,11 @@ export const WorkshopsSection = () => {
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                        Panels &{' '}
-                        <span className="text-primary">Workshops</span>
+                        Panels & <span className="text-primary">Workshops</span>
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        Join us for interactive workshops and panel discussions featuring industry experts and thought leaders
+                        Join us for interactive workshops and panel discussions
+                        featuring industry experts and thought leaders
                     </p>
                 </motion.div>
 
@@ -111,11 +113,13 @@ export const WorkshopsSection = () => {
                             <Card className="h-full border-border hover:border-primary/50 hover:shadow-md transition-all flex flex-col">
                                 <CardHeader className="pb-2 sm:pb-3 space-y-2">
                                     <div className="flex justify-between items-start">
-                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                            item.type === 'Workshop' 
-                                                ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' 
-                                                : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                                        }`}>
+                                        <span
+                                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                                item.type === 'Workshop'
+                                                    ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
+                                                    : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                                            }`}
+                                        >
                                             {item.type}
                                         </span>
                                     </div>

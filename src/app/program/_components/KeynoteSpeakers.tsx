@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
 import { keynoteSpeakers } from '@/constants/speakers';
@@ -79,18 +78,9 @@ export const KeynoteSpeakers = () => {
                                             </p>
                                         </div>
 
-                                        {/* Keynote Badge */}
-                                        <Badge
-                                            variant="secondary"
-                                            className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/20 mx-auto"
-                                        >
-                                            Keynote Speaker
-                                        </Badge>
-
                                         {/* Description */}
                                         <p className="text-xs text-muted-foreground leading-relaxed flex-grow">
-                                            Expert in AI Engineering and Applied
-                                            Mathematics
+                                            {speaker.description}
                                         </p>
 
                                         {/* Social Links */}

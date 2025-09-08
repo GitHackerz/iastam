@@ -55,7 +55,7 @@ export default function AnimatedSection({
     threshold = 0.1,
 }: AnimatedSectionProps) {
     const [ref, inView] = useInView({
-        triggerOnce: false,  // Changed to false for repeating animations
+        triggerOnce: false, // Changed to false for repeating animations
         threshold,
         rootMargin: '-50px 0px',
     });
