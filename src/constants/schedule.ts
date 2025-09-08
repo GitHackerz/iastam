@@ -23,7 +23,7 @@ export interface DailySchedule {
 export const schedule: DailySchedule = {
     day1: [
         {
-            time: '8:00 - 13:30',
+            time: '8:00 - 13:00',
             title: 'Check in, Registration',
             description:
                 'Participants check in and receive event materials. Posters setup',
@@ -64,7 +64,7 @@ export const schedule: DailySchedule = {
         },
         {
             time: '21:30 - 00:00',
-            title: 'Networking Games',
+            title: 'Networking activities',
             description: 'Networking games and social activities',
             type: 'social',
         },
@@ -87,18 +87,18 @@ export const schedule: DailySchedule = {
             time: '09:00 - 10:30',
             title: 'Workshop: From Student To Professional',
             description:
-                'Transform your journey with IAS — career development and professional insights. (Speaker: Mr. Srikanth Pillai)',
+                'Transform your journey with IAS — career development and professional insights.',
             type: 'workshop',
             speaker: 'Mr. Srikanth Pillai',
         },
-        // {
-        //     time: '09:00 - 10:30',
-        //     title: 'Workshop: Wajih Letaief',
-        //     description:
-        //         'Interactive workshop led by Wajih Letaief — focused on practical skills and hands-on learning.',
-        //     type: 'workshop',
-        //     speaker: 'Wajih Letaief',
-        // },
+        {
+            time: '09:00 - 10:30',
+            title: 'Workshop: Security /Cybersecurity  in Smart Grids',
+            description:
+                'Interactive workshop led by Wajih Letaief — focused on smart grid security.',
+            type: 'workshop',
+            speaker: 'Mr. Wajih Letaief',
+        },
         {
             time: '10:30 - 12:00',
             title: 'Panel Discussion: From Idea to Impact',
@@ -108,9 +108,8 @@ export const schedule: DailySchedule = {
         },
         {
             time: '10:30 - 12:00',
-            title: 'Workshop: Emerging Industry Trends',
-            description:
-                'Digital transformation and XR adoption — industry trends and practical insights. (Speaker: Mr Nehad El-Sherif)',
+            title: 'Workshop: What I Wish I Had Known When I was Younger',
+            description: 'Insights and lessons shared by Mr Nehad El-Sherif ',
             type: 'workshop',
             speaker: 'Mr Nehad El-Sherif',
         },
@@ -128,7 +127,7 @@ export const schedule: DailySchedule = {
             type: 'technical',
         },
         {
-            time: '15:30 - 16:30',
+            time: '15:00 - 16:30',
             title: 'Round Table Sessions',
             description:
                 'Dialogues in Motion: From Knowledge to Experience (By moving from table to another, participants will explore every theme in depth)',

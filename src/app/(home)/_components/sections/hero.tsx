@@ -282,7 +282,7 @@ export default function HeroSection() {
 
                     {/* Enhanced CTA Buttons */}
                     <AnimatedSection animation="fadeInUp" delay={1.0}>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                             <Link href="https://forms.gle/H6NNPaL1b8MtDXiG9">
                                 <MorphingButton
                                     variant="primary"

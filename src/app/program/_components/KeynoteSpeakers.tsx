@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Linkedin, Twitter } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { keynoteSpeakers } from '@/constants/speakers';
 import AnimatedSection from '@/components/ui/animated-section';
 import SectionHeader from '@/components/ui/section-header';
@@ -79,18 +78,9 @@ export const KeynoteSpeakers = () => {
                                             </p>
                                         </div>
 
-                                        {/* Keynote Badge */}
-                                        <Badge
-                                            variant="secondary"
-                                            className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/20 mx-auto"
-                                        >
-                                            Keynote Speaker
-                                        </Badge>
-
                                         {/* Description */}
                                         <p className="text-xs text-muted-foreground leading-relaxed flex-grow">
-                                            Expert in AI Engineering and Applied
-                                            Mathematics
+                                            {speaker.description}
                                         </p>
 
                                         {/* Social Links */}
@@ -106,19 +96,6 @@ export const KeynoteSpeakers = () => {
                                                     className="w-8 h-8 p-0 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300"
                                                 >
                                                     <Linkedin className="w-3.5 h-3.5" />
-                                                </Button>
-                                            </Link>
-                                            <Link
-                                                href={speaker.social.twitter}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <Button
-                                                    variant="outline"
-                                                    size="sm"
-                                                    className="w-8 h-8 p-0 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300"
-                                                >
-                                                    <Twitter className="w-3.5 h-3.5" />
                                                 </Button>
                                             </Link>
                                         </div>

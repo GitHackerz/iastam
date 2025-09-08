@@ -11,10 +11,10 @@ export const navLinks = [
         label: 'Technical Challenge',
         href: '/tech-challenge',
     },
-    {
-        label: 'Startups Forum',
-        href: '/startups-forum',
-    },
+    // {
+    //     label: 'Startups Forum',
+    //     href: '/startups-forum',
+    // },
     {
         label: 'Program',
         href: '/program',
