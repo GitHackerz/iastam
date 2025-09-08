@@ -20,7 +20,7 @@ export default function Home() {
             {/* <SpeakersSection /> */}
             <PreviousEditions />
             <PartnersSection />
-            <SponsorsSection />
+                {/* <SponsorsSection /> */}
             <LocationSection />
         </main>
     );

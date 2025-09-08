@@ -96,4 +96,11 @@ export const teamMembers: TeamMember[] = [
         phone: '93 722 130',
         image: '/images/board/fedi.png',
     },
+    {
+        name: 'Mohamed Mehdi Lakhzouri',
+        position: 'Webmaster',
+        email: 'mahdi.lakhzouri@ieee.org',
+        phone: '94 294 286',
+        image: '/images/board/mahdi.png',
+    },
 ];
