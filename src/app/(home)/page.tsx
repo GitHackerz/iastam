@@ -3,9 +3,12 @@ import HeroSection from '@/app/(home)/_components/sections/hero';
 import HostSection from '@/app/(home)/_components/sections/host';
 import PreviousEditions from '@/app/(home)/_components/sections/previous-editions';
 import PartnersSection from './_components/sections/partners';
+import IEEEPartnersSection from './_components/sections/ieee-partners';
 import LocationSection from './_components/sections/location';
 import TechChallengeSection from './_components/sections/tech-challenge';
 import StartupsForumSection from './_components/sections/startups-forum';
+import SponsorsSection from './_components/sections/sponsors';
+// import TimeLeftSection from './_components/sections/time-left';
 
 export default function Home() {
     return (
@@ -19,7 +22,8 @@ export default function Home() {
             {/* <SpeakersSection /> */}
             <PreviousEditions />
             <PartnersSection />
-            {/* <SponsorsSection /> */}
+            <IEEEPartnersSection />
+            <SponsorsSection />
             <LocationSection />
         </main>
     );
