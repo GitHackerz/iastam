@@ -69,4 +69,8 @@ export const ieeePartners = [
         name: 'IEEE IAS CMD',
         logo: '/images/sponsors/ias-png-1.png',
     },
+    {
+        name: 'IEEE Entrepreneurship Local Group',
+        logo: '/images/partners/logo%20entrepreneurship.png',
+    },
 ];

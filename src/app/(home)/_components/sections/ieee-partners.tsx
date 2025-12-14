@@ -47,7 +47,7 @@ export default function IEEEPartnersSection() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 rounded-full mx-auto mb-4">
                         <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
                         <span className="text-blue-600 font-medium tracking-wider uppercase text-sm">
-                            IEEE# Partners
+                            IEEE Partners
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -87,12 +87,12 @@ export default function IEEEPartnersSection() {
                             }}
                             className="group"
                         >
-                            <div className="relative w-full aspect-video bg-gradient-to-br from-blue-600/5 to-blue-600/10 rounded-xl flex items-center justify-center p-4 border border-blue-600/10 group-hover:border-blue-600/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-600/20">
+                            <div className="relative w-full aspect-square bg-gradient-to-br from-blue-600/5 to-blue-600/10 rounded-xl flex items-center justify-center p-4 border border-blue-600/10 group-hover:border-blue-600/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-600/20">
                                 <Image
                                     src={partner.logo}
                                     alt={partner.name}
-                                    width={120}
-                                    height={80}
+                                    width={100}
+                                    height={100}
                                     className="object-contain transition-transform duration-300 group-hover:scale-110"
                                 />
                             </div>

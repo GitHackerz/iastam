@@ -129,7 +129,7 @@ export default function PartnersSection() {
                             }}
                             className="group"
                         >
-                            <div className="relative w-full aspect-video bg-background/95 dark:bg-white/5 backdrop-blur-sm border border-border/30 rounded-xl flex items-center justify-center p-6 overflow-hidden transition-all duration-300 hover:bg-background dark:hover:bg-background/90 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10">
+                            <div className="relative w-full aspect-square bg-background/95 dark:bg-white/5 backdrop-blur-sm border border-border/30 rounded-xl flex items-center justify-center p-6 overflow-hidden transition-all duration-300 hover:bg-background dark:hover:bg-background/90 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10">
                                 {/* Hover gradient overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -138,8 +138,8 @@ export default function PartnersSection() {
                                     <Image
                                         src={partner.logo}
                                         alt={partner.name}
-                                        width={150}
-                                        height={80}
+                                        width={120}
+                                        height={120}
                                         className="object-contain transition-all duration-300 filter group-hover:brightness-110"
                                     />
                                 </div>

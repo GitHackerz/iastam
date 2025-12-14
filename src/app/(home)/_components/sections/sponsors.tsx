@@ -89,12 +89,12 @@ export default function SponsorsSection() {
                                         key={sponsor.name}
                                         whileHover={{ y: -8, scale: 1.02 }}
                                     >
-                                        <div className="relative w-full aspect-video bg-white/5 rounded-xl flex items-center justify-center p-6">
+                                        <div className="relative w-full aspect-square bg-white/5 rounded-xl flex items-center justify-center p-6">
                                             <Image
                                                 src={sponsor.logo}
                                                 alt={sponsor.name}
-                                                width={180}
-                                                height={100}
+                                                width={140}
+                                                height={140}
                                                 className="object-contain"
                                             />
                                         </div>
